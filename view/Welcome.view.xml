@@ -1,0 +1,11 @@
+<mvc:View controllerName="mdi.crm.soa.view.Welcome" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
+	<Page enableScrolling="false" id="welcomePage" navButtonPress="onNavBack" showNavButton="{device&gt;/isPhone}"
+		title="{i18n>welcome.label.welcome}">
+		<content>
+			<MessagePage id="welcomeMessagePage" description="" icon="sap-icon://official-service" showHeader="false" text="{i18n>welcome.words.select_an_feedback}"/>
+		</content>
+		<footer>
+			<Toolbar/>
+		</footer>
+	</Page>
+</mvc:View>

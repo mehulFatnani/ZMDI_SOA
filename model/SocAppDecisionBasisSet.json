@@ -1,0 +1,81 @@
+[{
+	"SocAppGuid": "4c23b1d1-bc9e-4e7d-83e9-fda1bb1db407",
+	"DecisionDescription": "Age of Applicant",
+	"DecisionValue": "12",
+	"__metadata": {
+		"uri": "SocAppDecisionBasisSet('Age of Applicant')",
+		"type": "ZSOA_APPROVE_SRV.SocAppDecisionBasis"
+	}
+}, {
+	"SocAppGuid": "4c23b1d1-bc9e-4e7d-83e9-fda1bb1db407",
+	"DecisionDescription": "Marital Status",
+	"DecisionValue": "Single",
+	"__metadata": {
+		"uri": "SocAppDecisionBasisSet('Marital Status')",
+		"type": "ZSOA_APPROVE_SRV.SocAppDecisionBasis"
+	}
+}, {
+	"SocAppGuid": "4c23b1d1-bc9e-4e7d-83e9-fda1bb1db407",
+	"DecisionDescription": "Parental Status",
+	"DecisionValue": "With no child",
+	"__metadata": {
+		"uri": "SocAppDecisionBasisSet('Parental Status')",
+		"type": "ZSOA_APPROVE_SRV.SocAppDecisionBasis"
+	}
+}, {
+	"SocAppGuid": "4c23b1d1-bc9e-4e7d-83e9-fda1bb1db407",
+	"DecisionDescription": "Date of Birth",
+	"DecisionValue": "01/01/2003",
+	"__metadata": {
+		"uri": "SocAppDecisionBasisSet('Date of Birth')",
+		"type": "ZSOA_APPROVE_SRV.SocAppDecisionBasis"
+	}
+}, {
+	"SocAppGuid": "4c23b1d1-bc9e-4e7d-83e9-fda1bb1db407",
+	"DecisionDescription": "Current Residence",
+	"DecisionValue": "At Parental Home",
+	"__metadata": {
+		"uri": "SocAppDecisionBasisSet('Current Residence')",
+		"type": "ZSOA_APPROVE_SRV.SocAppDecisionBasis"
+	}
+}, {
+	"SocAppGuid": "f692b207-f412-4e4c-83a2-9b8d19456626",
+	"DecisionDescription": "Age of Applicant",
+	"DecisionValue": "65",
+	"__metadata": {
+		"uri": "SocAppDecisionBasisSet('Age of Applicant')",
+		"type": "ZSOA_APPROVE_SRV.SocAppDecisionBasis"
+	}
+}, {
+	"SocAppGuid": "f692b207-f412-4e4c-83a2-9b8d19456626",
+	"DecisionDescription": "Total Private Assets",
+	"DecisionValue": "$123,189.00 AUD",
+	"__metadata": {
+		"uri": "SocAppDecisionBasisSet('Total Private Assets')",
+		"type": "ZSOA_APPROVE_SRV.SocAppDecisionBasis"
+	}
+}, {
+	"SocAppGuid": "607b599d-5484-48ee-ac2d-71482c7efc63",
+	"DecisionDescription": "DecisionDescription 8",
+	"DecisionValue": "DecisionValue 8",
+	"__metadata": {
+		"uri": "SocAppDecisionBasisSet('DecisionDescription 8')",
+		"type": "ZSOA_APPROVE_SRV.SocAppDecisionBasis"
+	}
+}, {
+	"SocAppGuid": "19ea7a85-1e52-46ad-be9d-825de6adc851",
+	"DecisionDescription": "DecisionDescription 9",
+	"DecisionValue": "DecisionValue 9",
+	"__metadata": {
+		"uri": "SocAppDecisionBasisSet('DecisionDescription 9')",
+		"type": "ZSOA_APPROVE_SRV.SocAppDecisionBasis"
+	}
+}, {
+	"SocAppGuid": "fb2067a5-2595-4860-8666-c1a03d9789f2",
+	"DecisionDescription": "DecisionDescription 10",
+	"DecisionValue": "DecisionValue 10",
+	"__metadata": {
+		"uri": "SocAppDecisionBasisSet('DecisionDescription 10')",
+		"type": "ZSOA_APPROVE_SRV.SocAppDecisionBasis"
+	}
+}]

@@ -1,0 +1,111 @@
+[{
+	"SocAppGuid": "4c23b1d1-bc9e-4e7d-83e9-fda1bb1db407",
+	"PartnerGuid": "ffd3d01f-d158-4293-9ba6-237efa1ba94c",
+	"PartnerId": "4000001234",
+	"PartnerName": "Ms Tammy Wynett",
+	"PartnerFunction": "Main Partner",
+	"PartnerFunctionDescription": "PartnerFunctionDescription 1",
+	"__metadata": {
+		"uri": "SocAppPartnerSet(guid'ffd3d01f-d158-4293-9ba6-237efa1ba94c')",
+		"type": "ZSOA_APPROVE_SRV.SocAppPartner"
+	}
+}, {
+	"SocAppGuid": "4c23b1d1-bc9e-4e7d-83e9-fda1bb1db407",
+	"PartnerGuid": "c071a913-3dc4-46b0-ad22-0bc51f451ac3",
+	"PartnerId": "4000001234",
+	"PartnerName": "Bobby Bitman",
+	"PartnerFunction": "Youth",
+	"PartnerFunctionDescription": "PartnerFunctionDescription 2",
+	"__metadata": {
+		"uri": "SocAppPartnerSet(guid'c071a913-3dc4-46b0-ad22-0bc51f451ac3')",
+		"type": "ZSOA_APPROVE_SRV.SocAppPartner"
+	}
+}, {
+	"SocAppGuid": "f692b207-f412-4e4c-83a2-9b8d19456626",
+	"PartnerGuid": "0e108e66-c79a-4040-a084-2bffa1cc4e98",
+	"PartnerId": "PartnerId 3",
+	"PartnerName": "PartnerName 3",
+	"PartnerFunction": "PartnerFunction 3",
+	"PartnerFunctionDescription": "PartnerFunctionDescription 3",
+	"__metadata": {
+		"uri": "SocAppPartnerSet(guid'0e108e66-c79a-4040-a084-2bffa1cc4e98')",
+		"type": "ZSOA_APPROVE_SRV.SocAppPartner"
+	}
+}, {
+	"SocAppGuid": "f692b207-f412-4e4c-83a2-9b8d19456626",
+	"PartnerGuid": "c2676fbd-dd3f-4d48-a809-cbc171ee4aef",
+	"PartnerId": "PartnerId 4",
+	"PartnerName": "PartnerName 4",
+	"PartnerFunction": "PartnerFunction 4",
+	"PartnerFunctionDescription": "PartnerFunctionDescription 4",
+	"__metadata": {
+		"uri": "SocAppPartnerSet(guid'c2676fbd-dd3f-4d48-a809-cbc171ee4aef')",
+		"type": "ZSOA_APPROVE_SRV.SocAppPartner"
+	}
+}, {
+	"SocAppGuid": "f61f4b2f-b032-4f24-b504-6542e1929ff6",
+	"PartnerGuid": "c95b9130-2db5-4b78-a205-1406f1d76d7d",
+	"PartnerId": "PartnerId 5",
+	"PartnerName": "PartnerName 5",
+	"PartnerFunction": "PartnerFunction 5",
+	"PartnerFunctionDescription": "PartnerFunctionDescription 5",
+	"__metadata": {
+		"uri": "SocAppPartnerSet(guid'c95b9130-2db5-4b78-a205-1406f1d76d7d')",
+		"type": "ZSOA_APPROVE_SRV.SocAppPartner"
+	}
+}, {
+	"SocAppGuid": "f61f4b2f-b032-4f24-b504-6542e1929ff6",
+	"PartnerGuid": "dd81e9d4-c1f7-4a7b-b500-ba5ae13db9b1",
+	"PartnerId": "PartnerId 6",
+	"PartnerName": "PartnerName 6",
+	"PartnerFunction": "PartnerFunction 6",
+	"PartnerFunctionDescription": "PartnerFunctionDescription 6",
+	"__metadata": {
+		"uri": "SocAppPartnerSet(guid'dd81e9d4-c1f7-4a7b-b500-ba5ae13db9b1')",
+		"type": "ZSOA_APPROVE_SRV.SocAppPartner"
+	}
+}, {
+	"SocAppGuid": "6089c287-0baa-411f-a76b-862b37b145cf",
+	"PartnerGuid": "f3a781c1-f161-4494-908e-4f33d903ebae",
+	"PartnerId": "PartnerId 7",
+	"PartnerName": "PartnerName 7",
+	"PartnerFunction": "PartnerFunction 7",
+	"PartnerFunctionDescription": "PartnerFunctionDescription 7",
+	"__metadata": {
+		"uri": "SocAppPartnerSet(guid'f3a781c1-f161-4494-908e-4f33d903ebae')",
+		"type": "ZSOA_APPROVE_SRV.SocAppPartner"
+	}
+}, {
+	"SocAppGuid": "04ecbefa-f3d9-46fe-a36d-59d9e929de42",
+	"PartnerGuid": "6b7bf811-d4a1-4afd-bbab-ed850ce8532f",
+	"PartnerId": "PartnerId 8",
+	"PartnerName": "PartnerName 8",
+	"PartnerFunction": "PartnerFunction 8",
+	"PartnerFunctionDescription": "PartnerFunctionDescription 8",
+	"__metadata": {
+		"uri": "SocAppPartnerSet(guid'6b7bf811-d4a1-4afd-bbab-ed850ce8532f')",
+		"type": "ZSOA_APPROVE_SRV.SocAppPartner"
+	}
+}, {
+	"SocAppGuid": "97f64111-e149-4d14-984f-19ceee54a1bd",
+	"PartnerGuid": "8418bd5f-e24f-4505-b7b5-a2d6c30c87f4",
+	"PartnerId": "PartnerId 9",
+	"PartnerName": "PartnerName 9",
+	"PartnerFunction": "PartnerFunction 9",
+	"PartnerFunctionDescription": "PartnerFunctionDescription 9",
+	"__metadata": {
+		"uri": "SocAppPartnerSet(guid'8418bd5f-e24f-4505-b7b5-a2d6c30c87f4')",
+		"type": "ZSOA_APPROVE_SRV.SocAppPartner"
+	}
+}, {
+	"SocAppGuid": "10c4bd23-0e6c-4fad-91bf-615b41675fc4",
+	"PartnerGuid": "4da409ff-0bb4-4943-9543-9229e808e3c7",
+	"PartnerId": "PartnerId 10",
+	"PartnerName": "PartnerName 10",
+	"PartnerFunction": "PartnerFunction 10",
+	"PartnerFunctionDescription": "PartnerFunctionDescription 10",
+	"__metadata": {
+		"uri": "SocAppPartnerSet(guid'4da409ff-0bb4-4943-9543-9229e808e3c7')",
+		"type": "ZSOA_APPROVE_SRV.SocAppPartner"
+	}
+}]

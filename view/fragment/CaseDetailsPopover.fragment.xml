@@ -1,0 +1,24 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	xmlns:f="sap.ui.layout.form" xmlns:u="sap.ui.unified" xmlns="sap.m">
+	<ResponsivePopover class="sapUiPopupWithPadding" placement="Auto" title="{i18n>detail.label.title.caseDetailsPopover}">
+		<beginButton>
+			<Button text="Launch Case" icon="sap-icon://suitcase" iconFirst="true" press="onPressLaunchCase"/>
+		</beginButton>
+		<content>
+			<f:SimpleForm columnsL="1" columnsM="1" editable="false" emptySpanL="4" emptySpanM="4" labelSpanL="3" labelSpanM="3"
+				layout="ResponsiveGridLayout" minWidth="1024" id="sForm" >
+				<f:title>
+					<core:Title text="Case Details"/>
+				</f:title>
+				<f:content>
+					<Label text="Case ID" textAlign="Left" textDirection="Inherit"/>
+					<Text text="{/CaseId}"/>
+					<Label text="Case Title" textAlign="Left" textDirection="Inherit"/>
+					<Text text="{/CaseTitle}"/>
+					<Label text="Status" textAlign="Left" textDirection="Inherit"/>
+					<Text text="{/CaseStatus}"/>
+				</f:content>
+			</f:SimpleForm>
+		</content>
+	</ResponsivePopover>
+</core:FragmentDefinition>

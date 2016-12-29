@@ -1,0 +1,22 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m">
+	<FlexBox alignItems="Center" direction="Column" justifyContent="Center">
+		<items>
+			<!--<f:SimpleForm columnsL="1" columnsM="1" editable="false" emptySpanL="4" emptySpanM="4" labelSpanL="3" labelSpanM="3"-->
+			<!--	layout="ResponsiveGridLayout" minWidth="1024">-->
+			<!--<core:Title text="{i18n>approve.dialog.title}"/>-->
+			<Label text="{i18n>approve.dialog.label.title}"/>
+			<Text text="{/UserName}" class="sapUiSmallMarginTop"/>
+			<TextArea placeholder="Add Note"  width="100%" class="sapUiSmallMarginTop"/>
+			<!--</f:SimpleForm>-->
+			<!--<Toolbar>-->
+			<!--	<content>-->
+			<!--		<ToolbarSpacer/>-->
+			<!--		<Button press="onApproveOkButtonPressed" text="{i18n>app.label.OK}"/>-->
+			<!--		<Button press="onApproveCancelButtonPressed" text="{i18n>app.label.cancel}"/>-->
+			<!--	</content>-->
+			<!--</Toolbar>-->
+		</items>
+	</FlexBox>
+	<!--</Panel>-->
+</core:FragmentDefinition>

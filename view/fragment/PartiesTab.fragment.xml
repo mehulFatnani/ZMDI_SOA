@@ -1,0 +1,30 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m">
+	<Table id="partiesList" inset="false" items="{SocAppPartnerSet}" mode="None" noDataText="{i18n>partnerTab.items.words.no_items}">
+		<headerToolbar>
+			<Toolbar>
+				<Title id="partnerListTitle" level="H3" text="{i18n>partnerTab.items.words.partner_title}"/>
+			</Toolbar>
+		</headerToolbar>
+		<columns>
+			<Column demandPopin="true" minScreenWidth="Tablet">
+				<Text text="{i18n>partnerTab.items.label.partnerName}"/>
+			</Column>
+			<Column demandPopin="true" minScreenWidth="Tablet">
+				<Text text="{i18n>partnerTab.items.label.partnerFunction}"/>
+			</Column>
+			<Column demandPopin="true" minScreenWidth="Tablet">
+				<Text text="{i18n>partnerTab.items.label.PartnerId}"/>
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem>
+				<cells>
+					<Text text="{PartnerName}"/>
+					<Text text="{PartnerFunctionDescription}"/>
+					<Text text="{PartnerId}"/>
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+</core:FragmentDefinition>

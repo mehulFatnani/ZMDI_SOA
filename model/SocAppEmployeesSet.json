@@ -1,0 +1,81 @@
+[{
+	"EmployeeGuid": "ad2e462f-04a4-4d8f-91c3-c6450dd4a8e6",
+	"EmployeeId": "EmployeeId 1",
+	"EmployeeName": "EmployeeName 1",
+	"__metadata": {
+		"uri": "SocAppEmployeesSet(guid'ad2e462f-04a4-4d8f-91c3-c6450dd4a8e6')",
+		"type": "ZSOA_APPROVE_SRV.SocAppEmployees"
+	}
+}, {
+	"EmployeeGuid": "e25dcc4b-af61-4bad-b871-c2aac682c764",
+	"EmployeeId": "EmployeeId 2",
+	"EmployeeName": "EmployeeName 2",
+	"__metadata": {
+		"uri": "SocAppEmployeesSet(guid'e25dcc4b-af61-4bad-b871-c2aac682c764')",
+		"type": "ZSOA_APPROVE_SRV.SocAppEmployees"
+	}
+}, {
+	"EmployeeGuid": "2b20e3f7-a804-4b74-a675-00acee7ad355",
+	"EmployeeId": "EmployeeId 3",
+	"EmployeeName": "EmployeeName 3",
+	"__metadata": {
+		"uri": "SocAppEmployeesSet(guid'2b20e3f7-a804-4b74-a675-00acee7ad355')",
+		"type": "ZSOA_APPROVE_SRV.SocAppEmployees"
+	}
+}, {
+	"EmployeeGuid": "444bd7c9-4b3a-4d80-b126-e9cc9c8a78ab",
+	"EmployeeId": "EmployeeId 4",
+	"EmployeeName": "EmployeeName 4",
+	"__metadata": {
+		"uri": "SocAppEmployeesSet(guid'444bd7c9-4b3a-4d80-b126-e9cc9c8a78ab')",
+		"type": "ZSOA_APPROVE_SRV.SocAppEmployees"
+	}
+}, {
+	"EmployeeGuid": "902de18c-e728-4a44-9098-61d999322c9d",
+	"EmployeeId": "EmployeeId 5",
+	"EmployeeName": "EmployeeName 5",
+	"__metadata": {
+		"uri": "SocAppEmployeesSet(guid'902de18c-e728-4a44-9098-61d999322c9d')",
+		"type": "ZSOA_APPROVE_SRV.SocAppEmployees"
+	}
+}, {
+	"EmployeeGuid": "82b57bcb-8e89-4044-a7f8-85ed0f5665b4",
+	"EmployeeId": "EmployeeId 6",
+	"EmployeeName": "EmployeeName 6",
+	"__metadata": {
+		"uri": "SocAppEmployeesSet(guid'82b57bcb-8e89-4044-a7f8-85ed0f5665b4')",
+		"type": "ZSOA_APPROVE_SRV.SocAppEmployees"
+	}
+}, {
+	"EmployeeGuid": "64643910-c4d6-4640-8c27-3b04bec3d4d4",
+	"EmployeeId": "EmployeeId 7",
+	"EmployeeName": "EmployeeName 7",
+	"__metadata": {
+		"uri": "SocAppEmployeesSet(guid'64643910-c4d6-4640-8c27-3b04bec3d4d4')",
+		"type": "ZSOA_APPROVE_SRV.SocAppEmployees"
+	}
+}, {
+	"EmployeeGuid": "d465d5c6-6609-4d10-9a2c-6ec7ffda8ac7",
+	"EmployeeId": "EmployeeId 8",
+	"EmployeeName": "EmployeeName 8",
+	"__metadata": {
+		"uri": "SocAppEmployeesSet(guid'd465d5c6-6609-4d10-9a2c-6ec7ffda8ac7')",
+		"type": "ZSOA_APPROVE_SRV.SocAppEmployees"
+	}
+}, {
+	"EmployeeGuid": "a923cf36-21ce-4451-901e-b746d2509507",
+	"EmployeeId": "EmployeeId 9",
+	"EmployeeName": "EmployeeName 9",
+	"__metadata": {
+		"uri": "SocAppEmployeesSet(guid'a923cf36-21ce-4451-901e-b746d2509507')",
+		"type": "ZSOA_APPROVE_SRV.SocAppEmployees"
+	}
+}, {
+	"EmployeeGuid": "a7141d17-5f3b-49ec-8ac4-139be0ae93ac",
+	"EmployeeId": "EmployeeId 10",
+	"EmployeeName": "EmployeeName 10",
+	"__metadata": {
+		"uri": "SocAppEmployeesSet(guid'a7141d17-5f3b-49ec-8ac4-139be0ae93ac')",
+		"type": "ZSOA_APPROVE_SRV.SocAppEmployees"
+	}
+}]

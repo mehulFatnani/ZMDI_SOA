@@ -1,0 +1,38 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m">
+	<!--<List-->
+	<!--	items="{/}"-->
+	<!--	includeItemInSelection="true">-->
+	<!--	<headerToolbar>-->
+	<!--		<Toolbar>-->
+	<!--			<content>-->
+	<!--				<SearchField search="onSearch" placeholder="Search" width="100%"/>-->
+	<!--			</content>-->
+	<!--		</Toolbar>-->
+	<!--	</headerToolbar>-->
+	<!--<ObjectListItem icon="sap-icon://person-placeholder" counter="0" markFavorite="false" markFlagged="false" press="onEmployeeSelect" showMarkers="true"-->
+	<!--	title="{EmployeeName}" type="{device&gt;/listItemType}">-->
+	<!--	<attributes>-->
+	<!--		<ObjectAttribute text="{EmployeeId}"/>-->
+	<!--	</attributes>-->
+	<!--</ObjectListItem>-->
+	<!--</List>-->
+	
+		<SelectDialog
+		noDataText="No Employee Found"
+		title="Forward"
+		search="handleSearch"
+		confirm="onEmployeeSelect"
+		close="onEmployeeSelect"
+		items="{/}"
+		>
+		<StandardListItem
+			title="{EmployeeName}"
+			description="{EmployeeId}"
+			icon="sap-icon://person-placeholder"
+			iconDensityAware="false"
+			iconInset="false"
+			type="Active" />
+	</SelectDialog>
+
+</core:FragmentDefinition>

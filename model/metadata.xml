@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema Namespace="ZSOA_APPROVE_SRV" sap:schema-version="1" xml:lang="en" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+			<EntityType Name="SocApp" sap:content-version="1">
+				<Key><PropertyRef Name="SocAppGuid"/></Key><Property Name="SocAppGuid" Nullable="false" Type="Edm.Guid" sap:creatable="false" sap:filterable="false" sap:label="Object GUID"
+					sap:sortable="false" sap:updatable="false"/><Property MaxLength="10" Name="ObjectId" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
+					sap:label="Object ID" sap:sortable="false" sap:updatable="false"/><Property MaxLength="4" Name="ProcessType" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
+					sap:label="Process Type" sap:sortable="false" sap:updatable="false"/><Property MaxLength="20" Name="ProcessTypeDescription" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
+					sap:label="Process Type Description" sap:sortable="false" sap:updatable="false"/><Property MaxLength="40" Name="Description" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
+					sap:label="Description" sap:sortable="false" sap:updatable="false"/><Property MaxLength="30" Name="SocAppStatus" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
+					sap:label="Social Application Status" sap:sortable="false" sap:updatable="false"/><Property MaxLength="10" Name="MainPartner" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
+					sap:label="Main Partner" sap:sortable="false" sap:updatable="false"/><Property MaxLength="10" Name="EmployeeReponsible" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
+					sap:label="Employee Reponsible" sap:sortable="false" sap:updatable="false"/><Property Name="SocAppDate" Nullable="false" Precision="7" Type="Edm.DateTime" sap:creatable="false" sap:filterable="false"
+					sap:label="Social Application Date" sap:sortable="false" sap:updatable="false"/><Property MaxLength="12" Name="CaseId" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Case ID"
+					sap:sortable="false" sap:updatable="false"/><NavigationProperty FromRole="FromRole_SocApp_SocAppItem" Name="SocAppItemSet" Relationship="ZSOA_APPROVE_SRV.SocApp_SocAppItem"
+					ToRole="ToRole_SocApp_SocAppItem"/><NavigationProperty FromRole="FromRole_SocApp_SocAppPartner" Name="SocAppPartnerSet" Relationship="ZSOA_APPROVE_SRV.SocApp_SocAppPartner"
+					ToRole="ToRole_SocApp_SocAppPartner"/><NavigationProperty FromRole="FromRole_SocApp_SocAppRelationship" Name="SocAppRelationshipSet"
+					Relationship="ZSOA_APPROVE_SRV.SocApp_SocAppRelationship" ToRole="ToRole_SocApp_SocAppRelationship"/><NavigationProperty FromRole="FromRole_SocApp_SocAppDecisionBasis" Name="SocAppDecisionBasisSet"
+					Relationship="ZSOA_APPROVE_SRV.SocApp_SocAppDecisionBasis" ToRole="ToRole_SocApp_SocAppDecisionBasis"/><NavigationProperty FromRole="FromRole_SocApp_SocAppCase" Name="SocAppCase" Relationship="ZSOA_APPROVE_SRV.SocApp_SocAppCase"
+					ToRole="ToRole_SocApp_SocAppCase"/><NavigationProperty FromRole="FromRole_SocApp_SocAppAddress" Name="SocAppAddress" Relationship="ZSOA_APPROVE_SRV.SocApp_SocAppAddress"
+					ToRole="ToRole_SocApp_SocAppAddress"/></EntityType>
+			<EntityType Name="SocAppItem" sap:content-version="1">
+				<Key><PropertyRef Name="ItemGuid"/></Key><Property Name="SocAppGuid" Nullable="false" Type="Edm.Guid" sap:creatable="false" sap:filterable="false"
+					sap:label="Social Application GUID" sap:sortable="false" sap:updatable="false"/><Property Name="ItemGuid" Nullable="false" Type="Edm.Guid" sap:creatable="false" sap:filterable="false" sap:label="Item GUID"
+					sap:sortable="false" sap:updatable="false"/><Property MaxLength="10" Name="ItemNo" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
+					sap:label="Item Number" sap:sortable="false" sap:updatable="false"/><Property MaxLength="20" Name="ItemTypeText" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
+					sap:label="Item Type" sap:sortable="false" sap:updatable="false"/><Property Name="StartDate" Nullable="false" Precision="8" Type="Edm.DateTime" sap:creatable="false" sap:filterable="false"
+					sap:label="Start Date" sap:sortable="false" sap:updatable="false"/><Property Name="EndDate" Nullable="false" Precision="8" Type="Edm.DateTime" sap:creatable="false" sap:filterable="false"
+					sap:label="End Date" sap:sortable="false" sap:updatable="false"/></EntityType>
+			<EntityType Name="SocAppPartner" sap:content-version="1">
+				<Key><PropertyRef Name="PartnerGuid"/></Key><Property Name="SocAppGuid" Nullable="false" Type="Edm.Guid" sap:creatable="false" sap:filterable="false"
+					sap:label="Social Application GUID" sap:sortable="false" sap:updatable="false"/><Property Name="PartnerGuid" Nullable="false" Type="Edm.Guid" sap:creatable="false" sap:filterable="false" sap:label="Partner GUID"
+					sap:sortable="false" sap:updatable="false"/><Property MaxLength="10" Name="PartnerId" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
+					sap:label="Business Partner ID" sap:sortable="false" sap:updatable="false"/><Property MaxLength="80" Name="PartnerName" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
+					sap:label="Partner Name" sap:sortable="false" sap:updatable="false"/><Property MaxLength="8" Name="PartnerFunction" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
+					sap:label="Partner Function" sap:sortable="false" sap:updatable="false"/><Property MaxLength="30" Name="PartnerFunctionDescription" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
+					sap:label="Partner Function Description" sap:sortable="false" sap:updatable="false"/></EntityType>
+			<EntityType Name="SocAppRelationship" sap:content-version="1">
+				<Key><PropertyRef Name="PartnerID"/><PropertyRef Name="RelationshipType"/></Key><Property Name="SocAppGuid" Nullable="false" Type="Edm.Guid" sap:creatable="false" sap:filterable="false"
+					sap:label="Social Application GUID" sap:sortable="false" sap:updatable="false"/><Property MaxLength="10" Name="PartnerID" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
+					sap:label="Partner ID" sap:sortable="false" sap:updatable="false"/><Property MaxLength="10" Name="RelatedPartner" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
+					sap:label="Related Partner" sap:sortable="false" sap:updatable="false"/><Property MaxLength="80" Name="RelatedPartnerName" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
+					sap:label="Related Partner Name" sap:sortable="false" sap:updatable="false"/><Property MaxLength="6" Name="RelationshipType" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
+					sap:label="Relationship Type" sap:sortable="false" sap:updatable="false"/><Property MaxLength="50" Name="RelationshipTypeDescription" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
+					sap:label="Relationship Type Description" sap:sortable="false" sap:updatable="false"/></EntityType>
+			<EntityType Name="SocAppCase" sap:content-version="1">
+				<Key><PropertyRef Name="SocAppGuid"/></Key><Property MaxLength="40" Name="CaseStatus" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
+					sap:label="Status" sap:sortable="false" sap:updatable="false"/><Property Name="SocAppGuid" Nullable="false" Type="Edm.Guid" sap:creatable="false" sap:filterable="false"
+					sap:label="Social Application GUID" sap:sortable="false" sap:updatable="false"/><Property Name="CaseGuid" Nullable="false" Type="Edm.Guid" sap:creatable="false" sap:filterable="false" sap:label="Case GUID"
+					sap:sortable="false" sap:updatable="false"/><Property MaxLength="12" Name="CaseId" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Case ID"
+					sap:sortable="false" sap:updatable="false"/><Property MaxLength="4" Name="CaseType" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
+					sap:label="Case Type" sap:sortable="false" sap:updatable="false"/><Property MaxLength="12" Name="Responsible" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
+					sap:label="Person Responsible" sap:sortable="false" sap:updatable="false"/><Property MaxLength="80" Name="CaseTitle" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
+					sap:label="Case Title" sap:sortable="false" sap:updatable="false"/></EntityType>
+			<EntityType Name="SocAppDecisionBasis" sap:content-version="1">
+				<Key><PropertyRef Name="RecordId"/></Key><Property Name="RecordId" Nullable="false" Type="Edm.Guid" sap:creatable="false" sap:filterable="false" sap:label="Record ID"
+					sap:sortable="false" sap:updatable="false"/><Property Name="SocAppGuid" Nullable="false" Type="Edm.Guid" sap:creatable="false" sap:filterable="false"
+					sap:label="Social Application GUID" sap:sortable="false" sap:updatable="false"/><Property MaxLength="50" Name="DecisionDescription" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
+					sap:label="Decision Basis Description" sap:sortable="false" sap:updatable="false"/><Property MaxLength="50" Name="DecisionValue" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
+					sap:label="Decision Basis Value" sap:sortable="false" sap:updatable="false"/></EntityType>
+			<EntityType Name="SocAppEmployees" sap:content-version="1">
+				<Key><PropertyRef Name="EmployeeGuid"/></Key><Property Name="EmployeeGuid" Nullable="false" Type="Edm.Guid" sap:creatable="false" sap:filterable="false" sap:label="Employee GUID"
+					sap:sortable="false" sap:updatable="false"/><Property MaxLength="10" Name="EmployeeId" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
+					sap:label="Employee ID" sap:sortable="false" sap:updatable="false"/><Property MaxLength="80" Name="EmployeeName" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
+					sap:label="Employee Name" sap:sortable="false" sap:updatable="false"/></EntityType>
+			<EntityType Name="SocAppAddress" sap:content-version="1">
+				<Key><PropertyRef Name="MainPartner"/></Key><Property Name="SocAppGuid" Nullable="false" Type="Edm.Guid" sap:creatable="false" sap:filterable="false"
+					sap:label="Social Application GUID" sap:sortable="false" sap:updatable="false"/><Property MaxLength="10" Name="AddressNumber" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
+					sap:label="Address Number" sap:sortable="false" sap:updatable="false"/><Property MaxLength="10" Name="MainPartner" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
+					sap:label="Main Partner" sap:sortable="false" sap:updatable="false"/><Property MaxLength="30" Name="TelephoneNumber" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
+					sap:label="Telephone Number" sap:sortable="false" sap:updatable="false"/><Property MaxLength="30" Name="MobileNumber" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
+					sap:label="Mobile Number" sap:sortable="false" sap:updatable="false"/><Property MaxLength="241" Name="Email" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
+					sap:label="E-Mail Address" sap:sortable="false" sap:updatable="false"/><Property MaxLength="60" Name="Street" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Street"
+					sap:sortable="false" sap:updatable="false"/><Property MaxLength="40" Name="City" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="City"
+					sap:sortable="false" sap:updatable="false"/><Property MaxLength="10" Name="PostCode" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
+					sap:label="Postal Code" sap:sortable="false" sap:updatable="false"/><Property MaxLength="3" Name="Region" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Region"
+					sap:sortable="false" sap:updatable="false"/><Property MaxLength="3" Name="Country" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Country"
+					sap:sortable="false" sap:updatable="false"/></EntityType>
+			<EntityType Name="SocAppAttachment" sap:content-version="1">
+				<Key><PropertyRef Name="Documentid"/></Key><Property Name="HeaderGuid" Nullable="false" Type="Edm.Guid" sap:creatable="false" sap:filterable="false" sap:label="Object GUID"
+					sap:sortable="false" sap:updatable="false"/><Property MaxLength="32" Name="Documentid" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
+					sap:label="Object ID" sap:sortable="false" sap:updatable="false"/><Property MaxLength="10" Name="Documentclass" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
+					sap:label="DocuClass" sap:sortable="false" sap:updatable="false"/><Property MaxLength="255" Name="Name" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
+					sap:label="Component name" sap:sortable="false" sap:updatable="false"/><Property MaxLength="128" Name="MimeType" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
+					sap:label="MIME type" sap:sortable="false" sap:updatable="false"/><Property MaxLength="80" Name="CreatedBy" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
+					sap:label="Complete name" sap:sortable="false" sap:updatable="false"/><Property Name="CreatedAt" Nullable="false" Precision="0" Type="Edm.DateTime" sap:creatable="false" sap:filterable="false"
+					sap:label="Time Stamp" sap:sortable="false" sap:updatable="false"/><Property Name="Url" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="URL" sap:sortable="false"
+					sap:updatable="false"/><Property MaxLength="1" Name="DummyTaskAttachmentIncl" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
+					sap:label="Dummy" sap:sortable="false" sap:updatable="false"/></EntityType>
+			<ComplexType Name="SocAppApprovalError"><Property MaxLength="1" Name="Type" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Message type"
+				sap:sortable="false" sap:updatable="false"/><Property MaxLength="20" Name="Id" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Message Class"
+				sap:sortable="false" sap:updatable="false"/><Property MaxLength="3" Name="Number" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
+				sap:label="Message number" sap:sortable="false" sap:updatable="false"/><Property MaxLength="220" Name="Message" Nullable="false" Type="Edm.String" sap:creatable="false" sap:filterable="false"
+				sap:label="Message text" sap:sortable="false" sap:updatable="false"/></ComplexType>
+			<Association Name="SocApp_SocAppPartner" sap:content-version="1"><End Multiplicity="1" Role="FromRole_SocApp_SocAppPartner" Type="ZSOA_APPROVE_SRV.SocApp"/><End Multiplicity="*" Role="ToRole_SocApp_SocAppPartner" Type="ZSOA_APPROVE_SRV.SocAppPartner"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_SocApp_SocAppPartner"><PropertyRef Name="SocAppGuid"/></Principal>
+					<Dependent Role="ToRole_SocApp_SocAppPartner"><PropertyRef Name="SocAppGuid"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="SocApp_SocAppRelationship" sap:content-version="1"><End Multiplicity="1" Role="FromRole_SocApp_SocAppRelationship" Type="ZSOA_APPROVE_SRV.SocApp"/><End Multiplicity="*" Role="ToRole_SocApp_SocAppRelationship" Type="ZSOA_APPROVE_SRV.SocAppRelationship"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_SocApp_SocAppRelationship"><PropertyRef Name="SocAppGuid"/></Principal>
+					<Dependent Role="ToRole_SocApp_SocAppRelationship"><PropertyRef Name="SocAppGuid"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="SocApp_SocAppDecisionBasis" sap:content-version="1"><End Multiplicity="1" Role="FromRole_SocApp_SocAppDecisionBasis" Type="ZSOA_APPROVE_SRV.SocApp"/><End Multiplicity="*" Role="ToRole_SocApp_SocAppDecisionBasis" Type="ZSOA_APPROVE_SRV.SocAppDecisionBasis"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_SocApp_SocAppDecisionBasis"><PropertyRef Name="SocAppGuid"/></Principal>
+					<Dependent Role="ToRole_SocApp_SocAppDecisionBasis"><PropertyRef Name="SocAppGuid"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="SocApp_SocAppCase" sap:content-version="1"><End Multiplicity="1" Role="FromRole_SocApp_SocAppCase" Type="ZSOA_APPROVE_SRV.SocApp"/><End Multiplicity="1" Role="ToRole_SocApp_SocAppCase" Type="ZSOA_APPROVE_SRV.SocAppCase"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_SocApp_SocAppCase"><PropertyRef Name="SocAppGuid"/></Principal>
+					<Dependent Role="ToRole_SocApp_SocAppCase"><PropertyRef Name="SocAppGuid"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="SocApp_SocAppAddress" sap:content-version="1"><End Multiplicity="1" Role="FromRole_SocApp_SocAppAddress" Type="ZSOA_APPROVE_SRV.SocApp"/><End Multiplicity="1" Role="ToRole_SocApp_SocAppAddress" Type="ZSOA_APPROVE_SRV.SocAppAddress"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_SocApp_SocAppAddress"><PropertyRef Name="SocAppGuid"/></Principal>
+					<Dependent Role="ToRole_SocApp_SocAppAddress"><PropertyRef Name="SocAppGuid"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="SocApp_SocAppAttachment" sap:content-version="1"><End Multiplicity="1" Role="FromRole_SocApp_SocAppAttachment" Type="ZSOA_APPROVE_SRV.SocApp"/><End Multiplicity="*" Role="ToRole_SocApp_SocAppAttachment" Type="ZSOA_APPROVE_SRV.SocAppAttachment"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_SocApp_SocAppAttachment"><PropertyRef Name="SocAppGuid"/></Principal>
+					<Dependent Role="ToRole_SocApp_SocAppAttachment"><PropertyRef Name="HeaderGuid"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association Name="SocApp_SocAppItem" sap:content-version="1"><End Multiplicity="1" Role="FromRole_SocApp_SocAppItem" Type="ZSOA_APPROVE_SRV.SocApp"/><End Multiplicity="*" Role="ToRole_SocApp_SocAppItem" Type="ZSOA_APPROVE_SRV.SocAppItem"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_SocApp_SocAppItem"><PropertyRef Name="SocAppGuid"/></Principal>
+					<Dependent Role="ToRole_SocApp_SocAppItem"><PropertyRef Name="SocAppGuid"/></Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<EntityContainer Name="ZSOA_APPROVE_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><EntitySet EntityType="ZSOA_APPROVE_SRV.SocApp" Name="SocAppSet" sap:content-version="1" sap:creatable="false" sap:deletable="false"
+				sap:pageable="false" sap:updatable="false"/><EntitySet EntityType="ZSOA_APPROVE_SRV.SocAppItem" Name="SocAppItemSet" sap:content-version="1" sap:creatable="false" sap:deletable="false"
+				sap:pageable="false" sap:updatable="false"/><EntitySet EntityType="ZSOA_APPROVE_SRV.SocAppPartner" Name="SocAppPartnerSet" sap:content-version="1" sap:creatable="false"
+				sap:deletable="false" sap:pageable="false" sap:updatable="false"/><EntitySet EntityType="ZSOA_APPROVE_SRV.SocAppRelationship" Name="SocAppRelationshipSet" sap:content-version="1" sap:creatable="false"
+				sap:deletable="false" sap:pageable="false" sap:updatable="false"/><EntitySet EntityType="ZSOA_APPROVE_SRV.SocAppCase" Name="SocAppCaseSet" sap:content-version="1" sap:creatable="false" sap:deletable="false"
+				sap:pageable="false" sap:updatable="false"/><EntitySet EntityType="ZSOA_APPROVE_SRV.SocAppDecisionBasis" Name="SocAppDecisionBasisSet" sap:content-version="1" sap:creatable="false"
+				sap:deletable="false" sap:pageable="false" sap:updatable="false"/><EntitySet EntityType="ZSOA_APPROVE_SRV.SocAppEmployees" Name="SocAppEmployeesSet" sap:content-version="1" sap:creatable="false"
+				sap:deletable="false" sap:pageable="false" sap:updatable="false"/><EntitySet EntityType="ZSOA_APPROVE_SRV.SocAppAddress" Name="SocAppAddressSet" sap:content-version="1" sap:creatable="false"
+				sap:deletable="false" sap:pageable="false" sap:updatable="false"/><EntitySet EntityType="ZSOA_APPROVE_SRV.SocAppAttachment" Name="SocAppAttachmentSet" sap:content-version="1" sap:creatable="false"
+				sap:deletable="false" sap:pageable="false" sap:updatable="false"/>
+				<AssociationSet Association="ZSOA_APPROVE_SRV.SocApp_SocAppRelationship" Name="SocApp_SocAppRelationshipSet" sap:content-version="1"
+					sap:creatable="false" sap:deletable="false" sap:updatable="false"><End EntitySet="SocAppSet" Role="FromRole_SocApp_SocAppRelationship"/><End EntitySet="SocAppRelationshipSet" Role="ToRole_SocApp_SocAppRelationship"/></AssociationSet>
+				<AssociationSet Association="ZSOA_APPROVE_SRV.SocApp_SocAppAttachment" Name="SocApp_SocAppAttachmentSet" sap:content-version="1"
+					sap:creatable="false" sap:deletable="false" sap:updatable="false"><End EntitySet="SocAppSet" Role="FromRole_SocApp_SocAppAttachment"/><End EntitySet="SocAppAttachmentSet" Role="ToRole_SocApp_SocAppAttachment"/></AssociationSet>
+				<AssociationSet Association="ZSOA_APPROVE_SRV.SocApp_SocAppItem" Name="SocApp_SocAppItemSet" sap:content-version="1" sap:creatable="false"
+					sap:deletable="false" sap:updatable="false"><End EntitySet="SocAppSet" Role="FromRole_SocApp_SocAppItem"/><End EntitySet="SocAppItemSet" Role="ToRole_SocApp_SocAppItem"/></AssociationSet>
+				<AssociationSet Association="ZSOA_APPROVE_SRV.SocApp_SocAppCase" Name="SocApp_SocAppCaseSet" sap:content-version="1" sap:creatable="false"
+					sap:deletable="false" sap:updatable="false"><End EntitySet="SocAppSet" Role="FromRole_SocApp_SocAppCase"/><End EntitySet="SocAppCaseSet" Role="ToRole_SocApp_SocAppCase"/></AssociationSet>
+				<AssociationSet Association="ZSOA_APPROVE_SRV.SocApp_SocAppPartner" Name="SocApp_SocAppPartnerSet" sap:content-version="1"
+					sap:creatable="false" sap:deletable="false" sap:updatable="false"><End EntitySet="SocAppSet" Role="FromRole_SocApp_SocAppPartner"/><End EntitySet="SocAppPartnerSet" Role="ToRole_SocApp_SocAppPartner"/></AssociationSet>
+				<AssociationSet Association="ZSOA_APPROVE_SRV.SocApp_SocAppDecisionBasis" Name="SocApp_SocAppDecisionBasisSet" sap:content-version="1"
+					sap:creatable="false" sap:deletable="false" sap:updatable="false"><End EntitySet="SocAppSet" Role="FromRole_SocApp_SocAppDecisionBasis"/><End EntitySet="SocAppDecisionBasisSet" Role="ToRole_SocApp_SocAppDecisionBasis"/></AssociationSet>
+				<AssociationSet Association="ZSOA_APPROVE_SRV.SocApp_SocAppAddress" Name="SocApp_SocAppAddressSet" sap:content-version="1"
+					sap:creatable="false" sap:deletable="false" sap:updatable="false"><End EntitySet="SocAppSet" Role="FromRole_SocApp_SocAppAddress"/><End EntitySet="SocAppAddressSet" Role="ToRole_SocApp_SocAppAddress"/></AssociationSet>
+				<FunctionImport EntitySet="SocAppSet" Name="SocialApplicationApprove" ReturnType="ZSOA_APPROVE_SRV.SocApp" m:HttpMethod="POST"><Parameter MaxLength="132" Mode="In" Name="NOTE" Type="Edm.String"/><Parameter MaxLength="10" Mode="In" Name="CODE" Type="Edm.String"/><Parameter Mode="In" Name="GUID" Type="Edm.Guid"/></FunctionImport>
+			</EntityContainer><atom:link href="https://webide-s0011952991trial.dispatcher.hanatrial.ondemand.com/destinations/AccentureSSS/sap/opu/odata/SAP/ZSOA_APPROVE_SRV/$metadata" rel="self"
+				xmlns:atom="http://www.w3.org/2005/Atom"/><atom:link href="https://webide-s0011952991trial.dispatcher.hanatrial.ondemand.com/destinations/AccentureSSS/sap/opu/odata/SAP/ZSOA_APPROVE_SRV/$metadata" rel="latest-version"
+				xmlns:atom="http://www.w3.org/2005/Atom"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

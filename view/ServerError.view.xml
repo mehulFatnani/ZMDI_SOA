@@ -1,0 +1,11 @@
+<mvc:View controllerName="mdi.crm.soa.view.ServerError" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
+	<Page enableScrolling="false" navButtonPress="onNavBack" showNavButton="{device&gt;/isPhone}"
+		title="{i18n>servererror.label.server_error}">
+		<content>
+			<MessagePage icon="sap-icon://disconnected" showHeader="false" text="{i18n>servererror.words.servererror.words.server_encountered_an_error}"/>
+		</content>
+		<footer>
+			<Toolbar/>
+		</footer>
+	</Page>
+</mvc:View>

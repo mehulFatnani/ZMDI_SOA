@@ -1,0 +1,100 @@
+[{
+	"SocAppGuid": "4c23b1d1-bc9e-4e7d-83e9-fda1bb1db407",
+	"PartnerID": "4000001111",
+	"RelatedPartner": "RelatedPartner 1",
+	"RelatedPartnerName": "Mary Wynett",
+	"RelationshipType": "Is the Child of",
+	"RelationshipTypeDescription": "RelationshipTypeDescription 1",
+	"__metadata": {
+		"uri": "SocAppRelationshipSet('PartnerID 1')",
+		"type": "ZSOA_APPROVE_SRV.SocAppRelationship"
+	}
+}, {
+	"SocAppGuid": "4c23b1d1-bc9e-4e7d-83e9-fda1bb1db407",
+	"PartnerID": "4000002222",
+	"RelatedPartner": "RelatedPartner 2",
+	"RelatedPartnerName": "Baby Wynett",
+	"RelationshipType": "Is the Mother of",
+	"RelationshipTypeDescription": "RelationshipTypeDescription 2",
+	"__metadata": {
+		"uri": "SocAppRelationshipSet('PartnerID 2')",
+		"type": "ZSOA_APPROVE_SRV.SocAppRelationship"
+	}
+}, {
+	"SocAppGuid": "f692b207-f412-4e4c-83a2-9b8d19456626",
+	"PartnerID": "PartnerID 4",
+	"RelatedPartner": "RelatedPartner 4",
+	"RelatedPartnerName": "RelatedPartnerName 4",
+	"RelationshipType": "RelationshipType 4",
+	"RelationshipTypeDescription": "RelationshipTypeDescription 4",
+	"__metadata": {
+		"uri": "SocAppRelationshipSet('PartnerID 4')",
+		"type": "ZSOA_APPROVE_SRV.SocAppRelationship"
+	}
+}, {
+	"SocAppGuid": "f692b207-f412-4e4c-83a2-9b8d19456626",
+	"PartnerID": "PartnerID 5",
+	"RelatedPartner": "RelatedPartner 5",
+	"RelatedPartnerName": "RelatedPartnerName 5",
+	"RelationshipType": "RelationshipType 5",
+	"RelationshipTypeDescription": "RelationshipTypeDescription 5",
+	"__metadata": {
+		"uri": "SocAppRelationshipSet('PartnerID 5')",
+		"type": "ZSOA_APPROVE_SRV.SocAppRelationship"
+	}
+}, {
+	"SocAppGuid": "f61f4b2f-b032-4f24-b504-6542e1929ff6",
+	"PartnerID": "PartnerID 6",
+	"RelatedPartner": "RelatedPartner 6",
+	"RelatedPartnerName": "RelatedPartnerName 6",
+	"RelationshipType": "RelationshipType 6",
+	"RelationshipTypeDescription": "RelationshipTypeDescription 6",
+	"__metadata": {
+		"uri": "SocAppRelationshipSet('PartnerID 6')",
+		"type": "ZSOA_APPROVE_SRV.SocAppRelationship"
+	}
+}, {
+	"SocAppGuid": "f61f4b2f-b032-4f24-b504-6542e1929ff6",
+	"PartnerID": "PartnerID 7",
+	"RelatedPartner": "RelatedPartner 7",
+	"RelatedPartnerName": "RelatedPartnerName 7",
+	"RelationshipType": "RelationshipType 7",
+	"RelationshipTypeDescription": "RelationshipTypeDescription 7",
+	"__metadata": {
+		"uri": "SocAppRelationshipSet('PartnerID 7')",
+		"type": "ZSOA_APPROVE_SRV.SocAppRelationship"
+	}
+}, {
+	"SocAppGuid": "f61f4b2f-b032-4f24-b504-6542e1929ff6",
+	"PartnerID": "PartnerID 8",
+	"RelatedPartner": "RelatedPartner 8",
+	"RelatedPartnerName": "RelatedPartnerName 8",
+	"RelationshipType": "RelationshipType 8",
+	"RelationshipTypeDescription": "RelationshipTypeDescription 8",
+	"__metadata": {
+		"uri": "SocAppRelationshipSet('PartnerID 8')",
+		"type": "ZSOA_APPROVE_SRV.SocAppRelationship"
+	}
+}, {
+	"SocAppGuid": "07710d03-1073-4963-8ccf-b7a0c53aaf24",
+	"PartnerID": "PartnerID 9",
+	"RelatedPartner": "RelatedPartner 9",
+	"RelatedPartnerName": "RelatedPartnerName 9",
+	"RelationshipType": "RelationshipType 9",
+	"RelationshipTypeDescription": "RelationshipTypeDescription 9",
+	"__metadata": {
+		"uri": "SocAppRelationshipSet('PartnerID 9')",
+		"type": "ZSOA_APPROVE_SRV.SocAppRelationship"
+	}
+}, {
+	"SocAppGuid": "f640580c-2275-4ff0-944d-f47f3f174d39",
+	"PartnerID": "PartnerID 10",
+	"RelatedPartner": "RelatedPartner 10",
+	"RelatedPartnerName": "RelatedPartnerName 10",
+	"RelationshipType": "RelationshipType 10",
+	"RelationshipTypeDescription": "RelationshipTypeDescription 10",
+	"__metadata": {
+		"uri": "SocAppRelationshipSet('PartnerID 10')",
+		"type": "ZSOA_APPROVE_SRV.SocAppRelationship"
+	}
+}]

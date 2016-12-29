@@ -1,0 +1,34 @@
+[{
+	"SocAppGuid": "4c23b1d1-bc9e-4e7d-83e9-fda1bb1db407",
+	"ItemGuid": "3f0f1c71-f906-4508-be81-30d0088de34e",
+	"ItemNo": "1",
+	"ItemTypeText": "Youth Allowance",
+	"StartDate": "/Date(1489706491000)/",
+	"EndDate": "/Date(1229815291000)/",
+	"__metadata": {
+		"uri": "SocAppItemSet(guid'41de0ab6-36b5-421e-86cd-41db62f5dc43')",
+		"type": "ZSOA_APPROVE_SRV.SocAppItem"
+	}
+}, {
+	"SocAppGuid": "f692b207-f412-4e4c-83a2-9b8d19456626",
+	"ItemGuid": "ec886d6f-fbd1-43e8-acd6-292dc113847a",
+	"ItemNo": "1",
+	"ItemTypeText": "Pension Benefit",
+	"StartDate": "/Date(1090282891000)/",
+	"EndDate": "/Date(960682891000)/",
+	"__metadata": {
+		"uri": "SocAppItemSet(guid'a5527f42-7c30-4351-91b9-08d8cb09a485')",
+		"type": "ZSOA_APPROVE_SRV.SocAppItem"
+	}
+}, {
+	"SocAppGuid": "f61f4b2f-b032-4f24-b504-6542e1929ff6",
+	"ItemGuid": "4e8f171e-c919-4546-b5ef-a550d8a8731c",
+	"ItemNo": "1",
+	"ItemTypeText": "Chid Benefit",
+	"StartDate": "/Date(1393888891000)/",
+	"EndDate": "/Date(1422832891000)/",
+	"__metadata": {
+		"uri": "SocAppItemSet(guid'8eb8f364-8cd0-4754-8e79-ac572ccde745')",
+		"type": "ZSOA_APPROVE_SRV.SocAppItem"
+	}
+}]

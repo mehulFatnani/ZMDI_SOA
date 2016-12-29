@@ -1,0 +1,26 @@
+[{
+	"SOAId": "1000003245",
+	"BPNumber": "4000003333",
+	"Relationship": "Is the Partner of",
+	"Partner": "Sally Wills"
+}, {
+	"SOAId": "1000003245",
+	"BPNumber": "4000004444",
+	"Relationship": "Is the Carer for",
+	"Partner": "Grandpa Wills"
+}, {
+	"SOAId": "1000002345",
+	"BPNumber": "4000001111",
+	"Relationship": "Is the Child of",
+	"Partner": "Mary Wynett"
+}, {
+	"SOAId": "1000002345",
+	"BPNumber": "4000002222",
+	"Relationship": "Is the Mother of",
+	"Partner": "Baby Wynett"
+}, {
+	"SOAId": "1000004387",
+	"BPNumber": "4000005555",
+	"Relationship": "Is the Partner of",
+	"Partner": "Sally Jones"
+}]

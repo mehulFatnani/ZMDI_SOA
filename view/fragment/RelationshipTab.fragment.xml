@@ -1,0 +1,30 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m">
+	<Table id="relationList" inset="false" items="{SocAppRelationshipSet}" mode="None" noDataText="{i18n>relationTab.items.words.no_items}">
+		<headerToolbar>
+			<Toolbar>
+				<Title id="relationListTitle" level="H3" text="{i18n>relationTab.items.words.relation_title}"/>
+			</Toolbar>
+		</headerToolbar>
+		<columns>
+			<Column demandPopin="true" minScreenWidth="Tablet">
+				<Text text="{i18n>relationTab.items.label.relationship}"/>
+			</Column>
+			<Column demandPopin="true" minScreenWidth="Tablet">
+				<Text text="{i18n>relationTab.items.label.partner}"/>
+			</Column>
+			<Column demandPopin="true" minScreenWidth="Tablet">
+				<Text text="{i18n>relationTab.items.label.bpnumber}"/>
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem>
+				<cells>
+					<Text text="{RelationshipTypeDescription}"/>
+					<Text text="{RelatedPartnerName}"/>
+					<Text text="{RelatedPartner}"/>
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+</core:FragmentDefinition>

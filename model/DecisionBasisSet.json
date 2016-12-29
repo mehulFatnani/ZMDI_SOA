@@ -1,0 +1,51 @@
+[{
+	"SOAId": "1000002345",
+	"DBA": "1",
+	"Description": "Age of Applicant",
+	"Value": "12"
+}, {
+	"SOAId": "1000002345",
+	"DBA": "2",
+	"Description": "Marital Status",
+	"Value": "Single"
+}, {
+	"SOAId": "1000002345",
+	"DBA": "3",
+	"Description": "Parental Status",
+	"Value": "With no child"
+}, {
+	"Description": "Date of Birth",
+	"SOAId": "1000002345",
+	"DBA": "4",
+	"Value": "01/01/2003"
+}, {
+	"SOAId": "1000002345",
+	"DBA": "5",
+	"Description": "Current Residence",
+	"Value": "At Parental Home"
+}, {
+	"SOAId": "1000004387",
+	"DBA": "1",
+	"Description": "Age of Applicant",
+	"Value": "65"
+}, {
+	"SOAId": "1000004387",
+	"DBA": "2",
+	"Description": "Total Private Assets",
+	"Value": "$123,189.00 AUD"
+}, {
+	"SOAId": "1000003245",
+	"DBA": "1",
+	"Description": "Age of Applicant",
+	"Value": "18"
+}, {
+	"SOAId": "1000003245",
+	"DBA": "2",
+	"Description": "Marital Status",
+	"Value": "Married"
+}, {
+	"SOAId": "1000003245",
+	"DBA": "3",
+	"Description": "Parental Status",
+	"Value": "With one Child"
+}]

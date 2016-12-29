@@ -1,0 +1,161 @@
+[{
+	"SocAppGuid": "4c23b1d1-bc9e-4e7d-83e9-fda1bb1db407",
+	"AddressNumber": "AddressNumber 1",
+	"MainPartner": "MainPartner 1",
+	"TelephoneNumber": "TelephoneNumber 1",
+	"MobileNumber": "MobileNumber 1",
+	"Email": "Email 1",
+	"Street": "Street 1",
+	"City": "City 1",
+	"PostCode": "PostCode 1",
+	"Region": "Region 1",
+	"Country": "Country 1",
+	"__metadata": {
+		"uri": "SocAppAddressSet('AddressNumber 1')",
+		"type": "ZSOA_APPROVE_SRV.SocAppAddress"
+	}
+}, {
+	"SocAppGuid": "f692b207-f412-4e4c-83a2-9b8d19456626",
+	"AddressNumber": "AddressNumber 2",
+	"MainPartner": "MainPartner 2",
+	"TelephoneNumber": "TelephoneNumber 2",
+	"MobileNumber": "MobileNumber 2",
+	"Email": "Email 2",
+	"Street": "Street 2",
+	"City": "City 2",
+	"PostCode": "PostCode 2",
+	"Region": "Region 2",
+	"Country": "Country 2",
+	"__metadata": {
+		"uri": "SocAppAddressSet('AddressNumber 2')",
+		"type": "ZSOA_APPROVE_SRV.SocAppAddress"
+	}
+}, {
+	"SocAppGuid": "f61f4b2f-b032-4f24-b504-6542e1929ff6",
+	"AddressNumber": "AddressNumber 3",
+	"MainPartner": "MainPartner 3",
+	"TelephoneNumber": "TelephoneNumber 3",
+	"MobileNumber": "MobileNumber 3",
+	"Email": "Email 3",
+	"Street": "Street 3",
+	"City": "City 3",
+	"PostCode": "PostCode 3",
+	"Region": "Region 3",
+	"Country": "Country 3",
+	"__metadata": {
+		"uri": "SocAppAddressSet('AddressNumber 3')",
+		"type": "ZSOA_APPROVE_SRV.SocAppAddress"
+	}
+}, {
+	"SocAppGuid": "8bc8ef1e-bea8-4d27-b921-8c8ba5c98976",
+	"AddressNumber": "AddressNumber 4",
+	"MainPartner": "MainPartner 4",
+	"TelephoneNumber": "TelephoneNumber 4",
+	"MobileNumber": "MobileNumber 4",
+	"Email": "Email 4",
+	"Street": "Street 4",
+	"City": "City 4",
+	"PostCode": "PostCode 4",
+	"Region": "Region 4",
+	"Country": "Country 4",
+	"__metadata": {
+		"uri": "SocAppAddressSet('AddressNumber 4')",
+		"type": "ZSOA_APPROVE_SRV.SocAppAddress"
+	}
+}, {
+	"SocAppGuid": "d769a51d-21a9-4df7-9f7b-b8ef95d67be5",
+	"AddressNumber": "AddressNumber 5",
+	"MainPartner": "MainPartner 5",
+	"TelephoneNumber": "TelephoneNumber 5",
+	"MobileNumber": "MobileNumber 5",
+	"Email": "Email 5",
+	"Street": "Street 5",
+	"City": "City 5",
+	"PostCode": "PostCode 5",
+	"Region": "Region 5",
+	"Country": "Country 5",
+	"__metadata": {
+		"uri": "SocAppAddressSet('AddressNumber 5')",
+		"type": "ZSOA_APPROVE_SRV.SocAppAddress"
+	}
+}, {
+	"SocAppGuid": "725d3f7b-b7b0-4e07-aebf-55b68baef7ee",
+	"AddressNumber": "AddressNumber 6",
+	"MainPartner": "MainPartner 6",
+	"TelephoneNumber": "TelephoneNumber 6",
+	"MobileNumber": "MobileNumber 6",
+	"Email": "Email 6",
+	"Street": "Street 6",
+	"City": "City 6",
+	"PostCode": "PostCode 6",
+	"Region": "Region 6",
+	"Country": "Country 6",
+	"__metadata": {
+		"uri": "SocAppAddressSet('AddressNumber 6')",
+		"type": "ZSOA_APPROVE_SRV.SocAppAddress"
+	}
+}, {
+	"SocAppGuid": "15ec7621-c96c-4cae-8ed2-ec69a8574d0d",
+	"AddressNumber": "AddressNumber 7",
+	"MainPartner": "MainPartner 7",
+	"TelephoneNumber": "TelephoneNumber 7",
+	"MobileNumber": "MobileNumber 7",
+	"Email": "Email 7",
+	"Street": "Street 7",
+	"City": "City 7",
+	"PostCode": "PostCode 7",
+	"Region": "Region 7",
+	"Country": "Country 7",
+	"__metadata": {
+		"uri": "SocAppAddressSet('AddressNumber 7')",
+		"type": "ZSOA_APPROVE_SRV.SocAppAddress"
+	}
+}, {
+	"SocAppGuid": "bcd1df62-16de-4a83-9b37-6b388259f654",
+	"AddressNumber": "AddressNumber 8",
+	"MainPartner": "MainPartner 8",
+	"TelephoneNumber": "TelephoneNumber 8",
+	"MobileNumber": "MobileNumber 8",
+	"Email": "Email 8",
+	"Street": "Street 8",
+	"City": "City 8",
+	"PostCode": "PostCode 8",
+	"Region": "Region 8",
+	"Country": "Country 8",
+	"__metadata": {
+		"uri": "SocAppAddressSet('AddressNumber 8')",
+		"type": "ZSOA_APPROVE_SRV.SocAppAddress"
+	}
+}, {
+	"SocAppGuid": "8d0794f5-9196-4417-872a-25a45538aeda",
+	"AddressNumber": "AddressNumber 9",
+	"MainPartner": "MainPartner 9",
+	"TelephoneNumber": "TelephoneNumber 9",
+	"MobileNumber": "MobileNumber 9",
+	"Email": "Email 9",
+	"Street": "Street 9",
+	"City": "City 9",
+	"PostCode": "PostCode 9",
+	"Region": "Region 9",
+	"Country": "Country 9",
+	"__metadata": {
+		"uri": "SocAppAddressSet('AddressNumber 9')",
+		"type": "ZSOA_APPROVE_SRV.SocAppAddress"
+	}
+}, {
+	"SocAppGuid": "bcdae741-3ddf-42c4-8b6d-9af0954ef00c",
+	"AddressNumber": "AddressNumber 10",
+	"MainPartner": "MainPartner 10",
+	"TelephoneNumber": "TelephoneNumber 10",
+	"MobileNumber": "MobileNumber 10",
+	"Email": "Email 10",
+	"Street": "Street 10",
+	"City": "City 10",
+	"PostCode": "PostCode 10",
+	"Region": "Region 10",
+	"Country": "Country 10",
+	"__metadata": {
+		"uri": "SocAppAddressSet('AddressNumber 10')",
+		"type": "ZSOA_APPROVE_SRV.SocAppAddress"
+	}
+}, {}]

@@ -1,0 +1,37 @@
+[{
+	"SocAppGuid": "4c23b1d1-bc9e-4e7d-83e9-fda1bb1db407",
+	"CaseStatus": "CaseStatus 1",
+	"CaseGuid": "f681c5c5-8dd1-4732-977c-55a61b211a04",
+	"CaseId": "CaseId 1",
+	"CaseType": "CaseType 1",
+	"Responsible": "Responsible 1",
+	"CaseTitle": "CaseTitle 1",
+	"__metadata": {
+		"uri": "SocAppCaseSet(guid'f681c5c5-8dd1-4732-977c-55a61b211a04')",
+		"type": "ZSOA_APPROVE_SRV.SocAppCase"
+	}
+}, {
+	"SocAppGuid": "f692b207-f412-4e4c-83a2-9b8d19456626",
+	"CaseStatus": "CaseStatus 2",
+	"CaseGuid": "fb42c92b-6592-4515-a3f9-48fac7f77d22",
+	"CaseId": "CaseId 2",
+	"CaseType": "CaseType 2",
+	"Responsible": "Responsible 2",
+	"CaseTitle": "CaseTitle 2",
+	"__metadata": {
+		"uri": "SocAppCaseSet(guid'fb42c92b-6592-4515-a3f9-48fac7f77d22')",
+		"type": "ZSOA_APPROVE_SRV.SocAppCase"
+	}
+}, {
+	"SocAppGuid": "f61f4b2f-b032-4f24-b504-6542e1929ff6",
+	"CaseStatus": "CaseStatus 3",
+	"CaseGuid": "14cd205c-4578-44ae-8d9b-bf18b2e5ff76",
+	"CaseId": "CaseId 3",
+	"CaseType": "CaseType 3",
+	"Responsible": "Responsible 3",
+	"CaseTitle": "CaseTitle 3",
+	"__metadata": {
+		"uri": "SocAppCaseSet(guid'14cd205c-4578-44ae-8d9b-bf18b2e5ff76')",
+		"type": "ZSOA_APPROVE_SRV.SocAppCase"
+	}
+}]

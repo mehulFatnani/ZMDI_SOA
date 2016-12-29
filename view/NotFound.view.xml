@@ -1,0 +1,11 @@
+<mvc:View controllerName="mdi.crm.soa.view.NotFound" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m">
+	<Page enableScrolling="false" id="notFoundPage" navButtonPress="onNavBack" showNavButton="{device&gt;/isPhone}"
+		title="{i18n>notfound.label.not_found}">
+		<content>
+			<MessagePage id="notfoundMessagePage" icon="sap-icon://question-mark" showHeader="false" text="{i18n>notfound.words.resource_was_not_found}"/>
+		</content>
+		<footer id="notFoundFooter">
+			<Toolbar id="notFoundToolbar"></Toolbar>
+		</footer>
+	</Page>
+</mvc:View>

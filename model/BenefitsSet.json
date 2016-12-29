@@ -1,0 +1,19 @@
+[{
+	"SOAId": "1000002345",
+	"Item": "1",
+	"BenefitType": "Youth Allowance",
+	"StartDate": "/Date(1451566800000)/",
+	"EndDate": "/Date(1496239200000)/"
+}, {
+	"SOAId": "1000004387",
+	"Item": "1",
+	"BenefitType": "Pension Benefit",
+	"StartDate": "/Date(1388494800000)/",
+	"EndDate": "/Date(1468504800000)/"
+}, {
+	"SOAId": "1000003245",
+	"Item": "1",
+	"BenefitType": "Chid Benefit",
+	"StartDate": "/Date(1422882000000)/",
+	"EndDate": "/Date(1488459600000)/"
+}]

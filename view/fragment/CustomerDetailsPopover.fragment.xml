@@ -1,0 +1,36 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	xmlns:f="sap.ui.layout.form" xmlns:u="sap.ui.unified" xmlns="sap.m">
+	<ResponsivePopover class="sapUiPopupWithPadding" placement="Auto" title="{i18n>detail.label.applicantDetails}">
+		<content>
+			<ObjectHeader icon="sap-icon://employee" title="{/MainPartner}">
+				<!--<attributes>-->
+				<!--	<ObjectAttribute text="{/BPNumber}"/>-->
+				<!--</attributes>-->
+			</ObjectHeader>
+			<f:SimpleForm columnsL="1" columnsM="1" editable="false" emptySpanL="4" emptySpanM="4" labelSpanL="3" labelSpanM="3"
+				layout="ResponsiveGridLayout" minWidth="1024">
+				<f:title>
+					<core:Title text="Contact Details"/>
+				</f:title>
+				<f:content>
+					<Label text="Mobile" textAlign="Left" textDirection="Inherit"/>
+					<Text text="{/MobileNumber}"/>
+					<Label text="Phone" textAlign="Left" textDirection="Inherit"/>
+					<Text text="{/TelephoneNumber}"/>
+					<Label text="Email" textAlign="Left" textDirection="Inherit"/>
+					<Text text="{/Email}"/>
+				</f:content>
+			</f:SimpleForm>
+			<f:SimpleForm columnsL="1" columnsM="1" editable="false" emptySpanL="4" emptySpanM="4" labelSpanL="3" labelSpanM="3"
+				layout="ResponsiveGridLayout" minWidth="1024">
+				<f:title>
+					<core:Title text="Address Details"/>
+				</f:title>
+				<f:content>
+					<Label text="Address" textAlign="Left" textDirection="Inherit"/>
+					<Text text="{parts:[{path:'/AddressNumber'},{path:'/Street'},{path:'/City'},{path:'/Region'},{path:'/PostCode'}]}"/>
+				</f:content>
+			</f:SimpleForm>
+		</content>
+	</ResponsivePopover>
+</core:FragmentDefinition>

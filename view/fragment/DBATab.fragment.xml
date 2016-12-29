@@ -1,0 +1,29 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+	xmlns:f="sap.ui.layout.form" xmlns:smartField="sap.ui.comp.smartfield" xmlns:smartForm="sap.ui.comp.smartform" xmlns="sap.m">
+	<Table id="dbaList" inset="false" items="{SocAppDecisionBasisSet}" mode="None" noDataText="{i18n>dbaTab.items.words.no_items}">
+		<headerToolbar>
+			<Toolbar>
+				<Title id="dbaListTitle" level="H3" text="{i18n>dbaTab.items.words.dba_title}"/>
+			</Toolbar>
+		</headerToolbar>
+		<columns>
+			<!--<Column demandPopin="true" minScreenWidth="Tablet">-->
+			<!--	<Text text="{i18n>dbaTab.items.label.dba}"/>-->
+			<!--</Column>-->
+			<Column demandPopin="true" minScreenWidth="Tablet">
+				<Text text="{i18n>dbaTab.items.label.description}"/>
+			</Column>
+			<Column demandPopin="true" minScreenWidth="Tablet">
+				<Text text="{i18n>dbaTab.items.label.value}"/>
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem>
+				<cells>
+					<Text text="{DecisionDescription}"/>
+					<Text text="{DecisionValue}"/>
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+</core:FragmentDefinition>

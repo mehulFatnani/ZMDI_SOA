@@ -1,0 +1,10 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m">
+	<FlexBox alignItems="Center" direction="Column" justifyContent="Center">
+		<items>
+			<Label required="true" text="{i18n>reject.dialog.label.title}"/>
+			<Text text="{/UserName}" class="sapUiSmallMarginTop"/>
+			<TextArea placeholder="Add Note (required)" value="{/Note}" width="100%" class="sapUiSmallMarginTop" valueStateText="{i18n>reject.dialog.mandatorytext}"/>
+		</items>
+	</FlexBox>
+</core:FragmentDefinition>

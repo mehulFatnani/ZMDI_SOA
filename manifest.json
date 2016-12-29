@@ -1,0 +1,208 @@
+{
+	"_version": "1.1.0",
+	"start_url": "index.html",
+	"sap.app": {
+		"_version": "1.1.0",
+		"id": "mdi.crm.soa",
+		"type": "application",
+		"i18n": "i18n/messageBundle_en.properties",
+		"applicationVersion": {
+			"version": "0.9.0"
+		},
+		"title": "{{app.title}}",
+		"tags": {
+			"keywords": [
+				"{{app.keyword1}}",
+				"{{app.keyword2}}",
+				"{{app.keyword3}}"
+			]
+		},
+		"dataSources": {
+			"ZSOA_APPROVE_SRV": {
+				"uri": "/sap/opu/odata/sap/ZSOA_APPROVE_SRV/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "model/metadata.xml"
+				}
+			}
+		}
+	},
+	"sap.ui": {
+		"_version": "1.1.0",
+		"technology": "UI5",
+		"icons": {
+			"icon": "sap-icon://monitor-payments",
+			"favIcon": "./resources/sap/ca/ui/themes/base/img/favicon/My_Leave_Requests.ico",
+			"phone": "./resources/sap/ca/ui/themes/base/img/launchicon/My_Leave_Requests/57_iPhone_Desktop_Launch.png",
+			"phone@2": "./resources/sap/ca/ui/themes/base/img/launchicon/My_Leave_Requests/114_iPhone-Retina_Web_Clip.png",
+			"tablet": "./resources/sap/ca/ui/themes/base/img/launchicon/My_Leave_Requests/72_iPad_Desktop_Launch.png",
+			"tablet@2": "./resources/sap/ca/ui/themes/base/img/launchicon/My_Leave_Requests/144_iPad_Retina_Web_Clip.png"
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_bluecrystal"
+		]
+	},
+	"sap.ui5": {
+		"_version": "1.1.0",
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				},
+				{
+					"uri": "css/custom-colored.css"
+				},
+				{
+					"uri": "css/Treant.css"
+				}
+			]
+		},
+		"dependencies": {
+			"minUI5Version": "1.30",
+			"libs": {
+				"sap.m": {},
+				"sap.ui.layout": {}
+			},
+			"components": {}
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"uri": "i18n/messageBundle_en.properties"
+			},
+			"": {
+				"dataSource": "ZSOA_APPROVE_SRV",
+				"settings": {
+					"defaultBindingMode": "TwoWay",
+					"defaultCountMode": "None"
+				}
+			}
+		},
+		"rootView": {
+			"viewName": "mdi.crm.soa.view.App",
+			"type": "XML",
+			"id": "app"
+		},
+		"handleValidation": true,
+		"config": {},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "mdi.crm.soa.view",
+				"clearTarget": false,
+				"transition": "slide",
+				"bypassed": {
+					"target": [
+						"not-found"
+					]
+				},
+				"controlAggregation": "pages"
+			},
+			"routes": [
+				{
+					"name": "detail",
+					"pattern": "detail/{SOAEntity}/{Action}/:Tab:",
+					"greedy": false,
+					"target": [
+						"home",
+						"detail"
+					]
+				},
+				{
+					"name": "not-found",
+					"pattern": "not-found",
+					"greedy": false,
+					"target": [
+						"home",
+						"not-found"
+					]
+				},
+				{
+					"name": "welcome",
+					"pattern": "welcome",
+					"greedy": false,
+					"target": [
+						"home",
+						"welcome"
+					]
+				},
+				{
+					"name": "server-error",
+					"pattern": "server-error",
+					"greedy": false,
+					"target": [
+						"server-error"
+					]
+				},
+				{
+					"name": "home",
+					"pattern": ":*all:",
+					"greedy": false,
+					"target": [
+						"home"
+					]
+				}
+			],
+			"targets": {
+				"home": {
+					"viewName": "Home",
+					"viewLevel": 1,
+					"controlId": "splitApp",
+					"controlAggregation": "masterPages",
+					"targetParent": "App"
+				},
+				"welcome": {
+					"viewName": "Welcome",
+					"viewLevel": 2,
+					"controlId": "splitApp",
+					"controlAggregation": "detailPages",
+					"targetParent": "App"
+				},
+				"detail": {
+					"viewName": "Detail",
+					"viewLevel": 2,
+					"controlId": "splitApp",
+					"controlAggregation": "detailPages",
+					"targetParent": "App"
+				},
+				"not-found": {
+					"viewName": "NotFound",
+					"viewLevel": 2,
+					"controlId": "splitApp",
+					"controlAggregation": "detailPages",
+					"targetParent": "App"
+				},
+				"server-error": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearAggregation": "true",
+					"viewName": "ServerError",
+					"viewLevel": 2,
+					"controlAggregation": "detailPages",
+					"controlId": "splitApp",
+					"targetParent": "App"
+				}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		}
+	},
+	"sap.platform.abap": {
+		"_version": "1.1.0",
+		"uri": "/sap/bc/ui5_ui5/sap/zmdi_soa"
+	},
+	"sap.platform.hcp": {
+		"uri": "",
+		"_version": "1.1.0"
+	}
+}

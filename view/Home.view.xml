@@ -1,0 +1,27 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="mdi.crm.soa.view.Home">
+	<Page id="homePage" title="{i18n&gt;home.label.title}">
+		<subHeader>
+			<Bar>
+				<contentLeft>
+						<SearchField id="idSearch" showRefreshButton="true" search="onSearch" placeholder="{i18n&gt;home.label.search_name_or_id}" tooltip="{i18n&gt;home.words.search_for_soa}" width="100%"/>
+				</contentLeft>
+			</Bar>
+		</subHeader>
+		<content>
+			<List growing="true" growingScrollToLoad="true" id="list" mode="{device&gt;/listMode}" noDataText="{i18n&gt;home.words.no_data}" select="onSelect">
+			</List>
+		</content>
+		<footer>
+			<Toolbar>
+				<content>
+					<footerbar:SettingsButton 
+					    id="settingsButton" 
+					    icon="sap-icon://action-settings" 
+					    tooltip="Help">
+					</footerbar:SettingsButton>
+					<ToolbarSpacer/>
+				</content>
+			</Toolbar>
+		</footer>
+	</Page>
+</mvc:View>

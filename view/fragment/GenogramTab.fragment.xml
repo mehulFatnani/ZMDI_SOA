@@ -1,0 +1,7 @@
+<core:FragmentDefinition 
+	xmlns:core="sap.ui.core"  
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:g="mdi.crm.soa.control"
+	xmlns="sap.m">
+<g:Genogram/>
+</core:FragmentDefinition>
