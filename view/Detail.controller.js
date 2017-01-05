@@ -303,7 +303,7 @@ sap.ui.define([
 				}, this));
 			}
 			if (sKey === "genogram") {
-			
+
 				this._Dynamics.oGenogramTab = sap.ui.xmlfragment(this.getView()
 					.getId(), "mdi.crm.soa.view.fragment.GenogramTab", this);
 				this.getView()
@@ -313,6 +313,8 @@ sap.ui.define([
 				var sMainPartner = oSource.getBindingContext()
 					.getObject()
 					.MainPartner;
+				var sMainPartnerName = oSource.getBindingContext()
+					.getObject().MainPartnerName;
 				/*var sPath = "/SocAppGenogramSet?$filter=MainPartner eq " + "'" + sMainPartner + "'";*/
 				var sPath = "/SocAppGenogramSet";
 				var aFilterIds = ["MainPartner"];
@@ -324,15 +326,45 @@ sap.ui.define([
 					urlParameters: {
 						"$expand": "SocAppSoaSet"
 					},
-					success: function(oData) { 
+					success: function(oData) {
 						if (oData) {
 							var oItems = oData.results;
-							for(var i=0; i <= oItems.length; i++)
-							{
-								console.log(oItems[i].MainParnter);
+							var ceo = {
+								text: {
+									name: sMainPartnerName,
+									title: sMainPartner,
+									contact: "Tel: 01 213 123 134"
+								},
+								image: "../headshots/2.jpg"
+							};
+							var cto; /*= {
+								parent: ceo,
+								text: {
+									name: sMainPartnerName,
+									title: sMainPartner,
+									contact: "Tel: 01 213 123 134"
+								},
+								image: "../headshots/1.jpg"
+							};*/
+							this.chart_config = [window.config, ceo];
+							//this.chart_config.push(cto);
+							for (var i = 0; i < oItems.length; i++) {
+								//console.log(oItems[i].MainPartner);
+								//this.chart_config = oData;
+								if (oItems[i].MainPartner === sMainPartner) {
+									cto = {
+										parent: ceo,
+										text: {
+											name: oItems[i].RelPartnerName,
+											title: oItems[i].RelPartner
+										},
+										image: "../headshots/1.jpg"
+									};
+									this.chart_config.push(cto);
+								}
 							}
+							window.Treant(this.chart_config);
 						}
-						
 					}.bind(this),
 					error: function(oError) {
 						if (oError) {
@@ -343,22 +375,22 @@ sap.ui.define([
 				this.getView()
 					.getModel()
 					.read(sPath, mParameters);
-					this.onGenogramLoad();		
-/*				this.getView()
-					.getModel()
-					.read(sPath, {
-					success: function(oData){
-						if (oData) {
-							//DO Nothing
-						}
-					},
-					error: function(oError) {
-						if (oError) {
-							jQuery.sap.log.error(oError);
-						}
-					}
-					});
-*/				
+				this.onGenogramLoad();
+				/*				this.getView()
+									.getModel()
+									.read(sPath, {
+									success: function(oData){
+										if (oData) {
+											//DO Nothing
+										}
+									},
+									error: function(oError) {
+										if (oError) {
+											jQuery.sap.log.error(oError);
+										}
+									}
+									});
+				*/
 
 			}
 		},

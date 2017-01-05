@@ -52,7 +52,7 @@ sap.ui.define([
 				}
 				data.push(oEntry);
 			}
-			window.Treant(window.chart_config);
+			//window.Treant(this.chart_config);
 		}
 	});
 });
