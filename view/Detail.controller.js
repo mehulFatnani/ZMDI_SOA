@@ -326,7 +326,11 @@ sap.ui.define([
 					},
 					success: function(oData) { 
 						if (oData) {
-							//Do Nothing
+							var oItems = oData.results;
+							for(var i=0; i <= oItems.length; i++)
+							{
+								console.log(oItems[i].MainParnter);
+							}
 						}
 						
 					}.bind(this),
