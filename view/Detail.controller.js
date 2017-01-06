@@ -337,7 +337,9 @@ sap.ui.define([
 								},
 								image: "../headshots/2.jpg"
 							};
-							var cto; /*= {
+							var cdo = ceo;
+							var cto;
+							/*= {
 								parent: ceo,
 								text: {
 									name: sMainPartnerName,
@@ -348,21 +350,49 @@ sap.ui.define([
 							};*/
 							this.chart_config = [window.config, ceo];
 							//this.chart_config.push(cto);
-							for (var i = 0; i < oItems.length; i++) {
-								//console.log(oItems[i].MainPartner);
-								//this.chart_config = oData;
-								if (oItems[i].MainPartner === sMainPartner) {
-									cto = {
-										parent: ceo,
-										text: {
-											name: oItems[i].RelPartnerName,
-											title: oItems[i].RelPartner
-										},
-										image: "../headshots/1.jpg"
-									};
-									this.chart_config.push(cto);
+							var distinct = [sMainPartner];
+							var relDistinct = [oItems[0].RelPartner];
+							for (var j = 0; j < oItems.length; j++) {
+								if (distinct.includes(oItems[j].MainPartner) === false) {
+									distinct.push(oItems[j].MainPartner);
+								}
+								if (relDistinct.includes(oItems[j].RelPartner) === false) {
+									relDistinct.push(oItems[j].RelPartner);
 								}
 							}
+							var disLength = relDistinct.length,
+								k = 0, m = 0,
+								cio;
+							do {
+								for (var i = 0; i < oItems.length; i++) {
+									//console.log(oItems[i].MainPartner);
+									//this.chart_config = oData;
+									if (oItems[i].MainPartner === sMainPartner) {
+										cto = {
+											parent: ceo,
+											//childrenDropLevel: m,
+											text: {
+												name: oItems[i].RelPartner,
+												title: oItems[i].RelPartnerName
+											},
+											image: "../headshots/1.jpg"
+										};
+										this.chart_config.push(cto);
+									}
+									for (var l = 1; l < this.chart_config.length; l++) {
+										if (relDistinct[k] === this.chart_config[l].text.name) {
+											cio = this.chart_config[l];
+											break;
+										}
+									}
+								}
+								sMainPartner = relDistinct[k];
+								if (distinct.includes(sMainPartner)) {
+									m = m + 2;
+								}
+								k++;
+								ceo = cio;
+							} while (k < disLength);
 							window.Treant(this.chart_config);
 						}
 					}.bind(this),
