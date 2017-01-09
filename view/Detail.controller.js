@@ -287,6 +287,36 @@ sap.ui.define([
 					}
 				});
 		},
+		generateText: function(Label, value){
+			
+			if (value.toString() === "")
+			{
+			return "";
+			}
+			return Label + ":" + value;
+		},
+		generateInnerHTML: function(iBPName,iBPNo,iCaseNo,iImageUrl,iBenefits)
+		{
+			var output=
+				"<img src=\"" + iImageUrl + "\">" +
+				"<p class=\"node-name\">" + iBPName + "</p>" +
+				"<p class=\"node-name\">BP No.</p>" + "<p class=\"node-title\">" + iBPNo + "</p>"; 
+				if(iCaseNo !== "")
+				{
+				output  = output + "<p class=\"node-name\">Case No.</p>" + "<p class=\"node-title\">" + iCaseNo +"</p>"; 
+				}
+				if(iBenefits !== undefined)
+				{
+					output = output + "<p class=\"node-name\">Recent Benfits:</p>";
+					for(var i=0; i< iBenefits.length && iBenefits[i].MainPartner === iBPNo; i++)
+					{
+						output = output + "<a href=\"http://www.google.com\" target=\"_blank\">" + iBenefits[i].SoaNo + "-" + iBenefits[i].SoaDesc + "</a>";
+					}
+				}
+
+			return output;
+		},
+		
 		onIconTabBarSelect: function(oEvent) {
 			var sKey = oEvent.getParameter("key");
 			var sModelPath = this.getView()
@@ -315,7 +345,8 @@ sap.ui.define([
 					.MainPartner;
 				var sMainPartnerName = oSource.getBindingContext()
 					.getObject().MainPartnerName;
-				/*var sPath = "/SocAppGenogramSet?$filter=MainPartner eq " + "'" + sMainPartner + "'";*/
+				var sCaseId = oSource.getBindingContext()
+					.getObject().CaseId;
 				var sPath = "/SocAppGenogramSet";
 				var aFilterIds = ["MainPartner"];
 				var aFilterValues = [sMainPartner];
@@ -326,17 +357,27 @@ sap.ui.define([
 					urlParameters: {
 						"$expand": "SocAppSoaSet"
 					},
-					success: function(oData) {
+					success: function(oData,oSource) {
 						if (oData) {
 							var oItems = oData.results;
 							var ceo = {
 								text: {
-									name: sMainPartnerName,
-									title: sMainPartner,
-									contact: "Tel: 01 213 123 134"
+									name   : sMainPartner,
+									title  : sMainPartnerName,
+									desc: this.generateText("Case Id",sCaseId),
+									contact:{
+															val: "1000811",
+            												href: "http://twitter.com/",
+            												target: "_self"
+											}
 								},
-								image: "../headshots/2.jpg"
+								image: "../headshots/2.jpg",
+								innerHTML: this.generateInnerHTML(sMainPartnerName,sMainPartner,sCaseId,"../headshots/2.jpg")
 							};
+<<<<<<< HEAD
+
+							var cto;
+=======
 							var cdo = ceo;
 							var cto;
 							/*= {
@@ -348,8 +389,13 @@ sap.ui.define([
 								},
 								image: "../headshots/1.jpg"
 							};*/
+>>>>>>> branch 'master' of https://github.com/mehulFatnani/ZMDI_SOA.git
 							this.chart_config = [window.config, ceo];
+<<<<<<< HEAD
+							
+=======
 							//this.chart_config.push(cto);
+>>>>>>> branch 'master' of https://github.com/mehulFatnani/ZMDI_SOA.git
 							var distinct = [sMainPartner];
 							var relDistinct = [oItems[0].RelPartner];
 							for (var j = 0; j < oItems.length; j++) {
@@ -365,6 +411,38 @@ sap.ui.define([
 								cio;
 							do {
 								for (var i = 0; i < oItems.length; i++) {
+<<<<<<< HEAD
+									if (oItems[i].MainPartner === sMainPartner) {
+										cto = {
+											parent: ceo,
+											text: {
+												name:  oItems[i].RelPartner,
+												title: oItems[i].RelPartnerName,
+												desc: this.generateText("Case Id",oItems[i].Caseno),
+												contact:{
+															val: "1000811",
+            												href: "http://twitter.com/",
+            												target: "_self"
+												}
+											},
+											image: "../headshots/1.jpg",
+											innerHTML: this.generateInnerHTML(oItems[i].RelPartnerName,
+																			oItems[i].RelPartner,
+																			oItems[i].Caseno,
+																			"../headshots/1.jpg",
+																			oItems[i].SocAppSoaSet)
+										};
+										this.chart_config.push(cto);
+									}
+									for (var l = 1; l < this.chart_config.length; l++) {
+										if (relDistinct[k] === this.chart_config[l].text.name) {
+											cio = this.chart_config[l];
+											break;
+										}
+									}
+								}
+								sMainPartner = relDistinct[k];
+=======
 									//console.log(oItems[i].MainPartner);
 									//this.chart_config = oData;
 									if (oItems[i].MainPartner === sMainPartner) {
@@ -390,6 +468,7 @@ sap.ui.define([
 								if (distinct.includes(sMainPartner)) {
 									m = m + 2;
 								}
+>>>>>>> branch 'master' of https://github.com/mehulFatnani/ZMDI_SOA.git
 								k++;
 								ceo = cio;
 							} while (k < disLength);
@@ -841,6 +920,7 @@ sap.ui.define([
 			return aFilters;
 
 		}
+	
 
 	});
 });
