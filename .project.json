@@ -1,7 +1,12 @@
 {
   "hcpdeploy": {
     "account": "s0011952991trial",
+<<<<<<< HEAD
+    "name": "zmdisoa",
+    "lastVersionWeTriedToDeploy": "1.0.1"
+=======
     "name": "zmdisoame",
     "lastVersionWeTriedToDeploy": "1.0.0"
+>>>>>>> branch 'master' of https://github.com/mehulFatnani/ZMDI_SOA.git
   }
 }

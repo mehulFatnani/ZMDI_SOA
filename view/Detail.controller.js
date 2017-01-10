@@ -357,8 +357,15 @@ sap.ui.define([
 					urlParameters: {
 						"$expand": "SocAppSoaSet"
 					},
+<<<<<<< HEAD
+					success: function(oData,oSource) 
+					{
+						if (oData) 
+						{
+=======
 					success: function(oData,oSource) {
 						if (oData) {
+>>>>>>> branch 'master' of https://github.com/mehulFatnani/ZMDI_SOA.git
 							var oItems = oData.results;
 							var ceo = {
 								text: {
@@ -371,15 +378,26 @@ sap.ui.define([
             												target: "_self"
 											}
 								},
+<<<<<<< HEAD
+								image: "../headshots/2.jpg"
+								,
+=======
 								image: "../headshots/2.jpg",
+>>>>>>> branch 'master' of https://github.com/mehulFatnani/ZMDI_SOA.git
 								innerHTML: this.generateInnerHTML(sMainPartnerName,sMainPartner,sCaseId,"../headshots/2.jpg")
 							};
+<<<<<<< HEAD
+							
+=======
 <<<<<<< HEAD
 
 							var cto;
 =======
+>>>>>>> branch 'master' of https://github.com/mehulFatnani/ZMDI_SOA.git
 							var cdo = ceo;
 							var cto;
+<<<<<<< HEAD
+=======
 							/*= {
 								parent: ceo,
 								text: {
@@ -390,15 +408,20 @@ sap.ui.define([
 								image: "../headshots/1.jpg"
 							};*/
 >>>>>>> branch 'master' of https://github.com/mehulFatnani/ZMDI_SOA.git
+>>>>>>> branch 'master' of https://github.com/mehulFatnani/ZMDI_SOA.git
 							this.chart_config = [window.config, ceo];
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
 							
 =======
 							//this.chart_config.push(cto);
 >>>>>>> branch 'master' of https://github.com/mehulFatnani/ZMDI_SOA.git
+>>>>>>> branch 'master' of https://github.com/mehulFatnani/ZMDI_SOA.git
 							var distinct = [sMainPartner];
 							var relDistinct = [oItems[0].RelPartner];
-							for (var j = 0; j < oItems.length; j++) {
+							for (var j = 0; j < oItems.length; j++) 
+							{
 								if (distinct.includes(oItems[j].MainPartner) === false) {
 									distinct.push(oItems[j].MainPartner);
 								}
@@ -410,6 +433,12 @@ sap.ui.define([
 								k = 0, m = 0,
 								cio;
 							do {
+<<<<<<< HEAD
+								for (var i = 0; i < oItems.length; i++) 
+								{
+									if (oItems[i].MainPartner === sMainPartner) 
+									{
+=======
 								for (var i = 0; i < oItems.length; i++) {
 <<<<<<< HEAD
 									if (oItems[i].MainPartner === sMainPartner) {
@@ -446,28 +475,51 @@ sap.ui.define([
 									//console.log(oItems[i].MainPartner);
 									//this.chart_config = oData;
 									if (oItems[i].MainPartner === sMainPartner) {
+>>>>>>> branch 'master' of https://github.com/mehulFatnani/ZMDI_SOA.git
 										cto = {
 											parent: ceo,
-											//childrenDropLevel: m,
 											text: {
-												name: oItems[i].RelPartner,
-												title: oItems[i].RelPartnerName
+												name:  oItems[i].RelPartner,
+												title: oItems[i].RelPartnerName,
+												desc: this.generateText("Case Id",oItems[i].Caseno),
+												contact:{
+															val: "1000811",
+            												href: "http://twitter.com/",
+            												target: "_self"
+												}
 											},
 											image: "../headshots/1.jpg"
+											,
+											innerHTML: this.generateInnerHTML(oItems[i].RelPartnerName,
+																			oItems[i].RelPartner,
+																			oItems[i].Caseno,
+																			"../headshots/1.jpg",
+																			oItems[i].SocAppSoaSet)
 										};
 										this.chart_config.push(cto);
 									}
+									for (var l = 1; l < this.chart_config.length; l++) 
+									{
+										if (relDistinct[k] === this.chart_config[l].text.name) 
+										{
+											cio = this.chart_config[l];
+											break;
+										}
+									}
+								}
 									for (var l = 1; l < this.chart_config.length; l++) {
 										if (relDistinct[k] === this.chart_config[l].text.name) {
 											cio = this.chart_config[l];
 											break;
 										}
 									}
-								}
 								sMainPartner = relDistinct[k];
+<<<<<<< HEAD
+=======
 								if (distinct.includes(sMainPartner)) {
 									m = m + 2;
 								}
+>>>>>>> branch 'master' of https://github.com/mehulFatnani/ZMDI_SOA.git
 >>>>>>> branch 'master' of https://github.com/mehulFatnani/ZMDI_SOA.git
 								k++;
 								ceo = cio;
@@ -485,21 +537,6 @@ sap.ui.define([
 					.getModel()
 					.read(sPath, mParameters);
 				this.onGenogramLoad();
-				/*				this.getView()
-									.getModel()
-									.read(sPath, {
-									success: function(oData){
-										if (oData) {
-											//DO Nothing
-										}
-									},
-									error: function(oError) {
-										if (oError) {
-											jQuery.sap.log.error(oError);
-										}
-									}
-									});
-				*/
 
 			}
 		},
