@@ -61,6 +61,12 @@
 				},
 				{
 					"uri": "css/Treant.css"
+				},
+				{
+					"uri": "css/collapsable.css"
+				},
+				{
+					"uri": "css/perfect-scrollbar.css"
 				}
 			]
 		},

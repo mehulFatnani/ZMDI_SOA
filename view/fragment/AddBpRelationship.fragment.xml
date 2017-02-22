@@ -1,0 +1,56 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+	<Dialog id="addRelationDialog" title="Add Relationship">
+		<Panel expandable="false" expanded="false" headerText="{AddBpRelationship.header}" width="auto" class="sapUiResponsiveMargin">
+			<content>
+				<Label text="Main Partner"/>
+				<Input id="MainPartnerDesc" editable="false"/>
+				<Input id="MainPartner1" editable="false" visible="false"/>
+				<Label text="Relationship Category"/>
+				<Input id="CatgInput" valueHelpRequest="onCatgValHelp" showValueHelp="true"></Input>
+				<Label text="Related Business Partner"/>
+				<Input id="BpInput" valueHelpRequest="onBPValHelp" showValueHelp="true"></Input>
+				<Button text="Add" press="onSubmitRelationship"/>
+				<Button text="Cancel" press="onCloseDialog"/>
+			</content>
+		</Panel>
+		<!--	<VBox class="sapUiSmallMargin">
+			<f:Form id="FormDisplay354" minWidth="1024" maxContainerCols="3" editable="false" class="isReadonly">
+				<f:title>
+					<core:Title text="Add Relationship"/>
+				</f:title>
+				<f:layout>
+					<f:ResponsiveGridLayout labelSpanL="3" labelSpanM="3" emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1"/>
+				</f:layout>
+				<f:formContainers>
+					<f:FormContainer>
+						<f:formElements>
+							<f:FormElement label="Name">
+								<f:fields>
+									<Text text="Hello" id="nameText1"/>
+									<layoutData>
+										<l:GridData span="L2 M2 S4"/>
+									</layoutData>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Street">
+								<f:fields>
+									<Text text="Street"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="ZIP Code/City">
+								<f:fields>
+									<Text text="Zipcode"/>
+								</f:fields>
+							</f:FormElement>
+							<f:FormElement label="Country">
+								<f:fields>
+									<Text text="Country" id="countryText"/>
+								</f:fields>
+							</f:FormElement>
+						</f:formElements>
+					</f:FormContainer>
+				</f:formContainers>
+			</f:Form>
+		</VBox>-->
+	</Dialog>
+</core:FragmentDefinition>

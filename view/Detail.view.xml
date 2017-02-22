@@ -67,6 +67,7 @@
 					<IconTabFilter icon="sap-icon://org-chart" id="genogramTabFilter" key="genogram" text="{i18n>genogramTab.label.title}">
 						<content>
 							<core:Fragment fragmentName="mdi.crm.soa.view.fragment.GenogramTab" type="XML"/>
+							<Button icon="sap-icon://add" press="onAddRelationship" text="Add Relationship"/>
 						</content>
 					</IconTabFilter>
 				</items>

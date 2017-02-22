@@ -7,6 +7,7 @@ sap.ui.define([
 	"./lib/thirdparty/custom-colored",
 	"./lib/thirdparty/raphael",
 	"./lib/thirdparty/Treant"
+	
 ],
 function (
 	jQuery,

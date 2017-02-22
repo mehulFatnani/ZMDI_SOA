@@ -12,14 +12,10 @@
       "hashParameter": "",
       "backendSystem": [],
       "_metadata": {
-        "runnerId": "webapprunner",
         "id": 6277961,
+        "runnerId": "webapprunner",
         "displayName": "Run index.html",
-<<<<<<< HEAD
-        "lastRunTimeStamp": 1484028023445
-=======
-        "lastRunTimeStamp": 1483805905858
->>>>>>> branch 'master' of https://github.com/mehulFatnani/ZMDI_SOA.git
+        "lastRunTimeStamp": 1487747385791
       }
     }
   ]

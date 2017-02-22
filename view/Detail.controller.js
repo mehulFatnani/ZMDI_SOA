@@ -287,36 +287,50 @@ sap.ui.define([
 					}
 				});
 		},
-		generateText: function(Label, value){
-			
-			if (value.toString() === "")
-			{
-			return "";
+		generateText: function(Label, value) {
+
+			if (value.toString() === "") {
+				return "";
 			}
 			return Label + ":" + value;
 		},
-		generateInnerHTML: function(iBPName,iBPNo,iCaseNo,iImageUrl,iBenefits)
-		{
-			var output=
-				"<img src=\"" + iImageUrl + "\">" +
-				"<p class=\"node-name\">" + iBPName + "</p>" +
-				"<p class=\"node-name\">BP No.</p>" + "<p class=\"node-title\">" + iBPNo + "</p>"; 
-				if(iCaseNo !== "")
-				{
-				output  = output + "<p class=\"node-name\">Case No.</p>" + "<p class=\"node-title\">" + iCaseNo +"</p>"; 
-				}
-				if(iBenefits !== undefined)
-				{
-					output = output + "<p class=\"node-name\">Recent Benfits:</p>";
-					for(var i=0; i< iBenefits.length && iBenefits[i].MainPartner === iBPNo; i++)
-					{
-						output = output + "<a href=\"http://www.google.com\" target=\"_blank\">" + iBenefits[i].SoaNo + "-" + iBenefits[i].SoaDesc + "</a>";
-					}
+		generateInnerHTML: function(iRel, iBPName, iBPNo, iCaseNo, iGender, iHasPic, iIsAdult, iLevel, iBenefits) {
+			var defaultPic;
+			if (iHasPic === "X") {
+				defaultPic = "http://blcgbs68.accenture.tsap:8100" + this.getView().getModel().sServiceUrl + '/SocAppImgAttachmentSet(\'00' +
+					iBPNo + '\')/$value';
+			} else {
+				switch (iGender) {
+					case "1":
+						defaultPic = "../headshots/maleIcon.png";
+						break;
+					case "2":
+						defaultPic = "../headshots/femaleIcon.jpg";
+						break;
 				}
 
+			}
+			var output = "<div class=\"GenogramPic\"><img src=\"" + defaultPic + "\" style=\"width:40%\"></div>";
+				if (iLevel !== 0)
+				{
+				output = output + "<div class=\"GenogramContent\"><p class=\"node-name\">Relation.</p>" + "<p class=\"node-title\">" + iRel + "</p>" ;
+				}
+				output = output + "<p class=\"node-name\">" + iBPName + "</p>" +
+				"<p class=\"node-name\">BP No.</p>" + "<p class=\"node-title\">" + iBPNo + "</p>";
+			if (iCaseNo !== "") {
+				output = output + "<p class=\"node-name\">Case No.</p>" + "<p class=\"node-title\">" + iCaseNo + "</p>";
+			}
+			if (iBenefits !== undefined && iBenefits.results.length !== 0) {
+				output = output + "<p class=\"node-name\">Recent Benfits:</p>";
+				var oItem = iBenefits.results;
+				for (var m = 0; m < oItem.length && oItem[m].MainPartner === iBPNo; m++) {
+					output = output + "<a target=\"_blank\" href=\"" + oItem[m].SoaUrl + "\">" + oItem[m].SoaNo + "-" + oItem[m].SoaDesc + "</a>";
+				}
+			}
+			output = output + "</div>";
 			return output;
 		},
-		
+
 		onIconTabBarSelect: function(oEvent) {
 			var sKey = oEvent.getParameter("key");
 			var sModelPath = this.getView()
@@ -333,7 +347,8 @@ sap.ui.define([
 				}, this));
 			}
 			if (sKey === "genogram") {
-
+				this.getView()
+					.setBusy(true);
 				this._Dynamics.oGenogramTab = sap.ui.xmlfragment(this.getView()
 					.getId(), "mdi.crm.soa.view.fragment.GenogramTab", this);
 				this.getView()
@@ -347,6 +362,9 @@ sap.ui.define([
 					.getObject().MainPartnerName;
 				var sCaseId = oSource.getBindingContext()
 					.getObject().CaseId;
+				var sGender = oSource.getBindingContext().getObject().PartnerSex;
+				var sHasPic	 = oSource.getBindingContext().getObject().PartnerPic;
+				var sIsAdult = oSource.getBindingContext().getObject().PartnerAge;
 				var sPath = "/SocAppGenogramSet";
 				var aFilterIds = ["MainPartner"];
 				var aFilterValues = [sMainPartner];
@@ -357,71 +375,50 @@ sap.ui.define([
 					urlParameters: {
 						"$expand": "SocAppSoaSet"
 					},
-<<<<<<< HEAD
-					success: function(oData,oSource) 
-					{
-						if (oData) 
-						{
-=======
-					success: function(oData,oSource) {
+					success: function(oData) {
+
+						this.chart_config = [];
 						if (oData) {
->>>>>>> branch 'master' of https://github.com/mehulFatnani/ZMDI_SOA.git
 							var oItems = oData.results;
+							var config = {
+								container: "#custom-colored",
+								nodeAlign: "BOTTOM",
+								animateOnInit: true,
+								connectors: {
+									type: 'step'
+								},
+								node: {
+									HTMLclass: 'nodeExample1',
+									collapsable: true
+								},
+								animation: {
+									nodeAnimation: "easeOutBounce",
+									nodeSpeed: 700,
+									connectorsAnimation: "bounce",
+									connectorsSpeed: 700
+								}
+							};
 							var ceo = {
 								text: {
-									name   : sMainPartner,
-									title  : sMainPartnerName,
-									desc: this.generateText("Case Id",sCaseId),
-									contact:{
-															val: "1000811",
-            												href: "http://twitter.com/",
-            												target: "_self"
-											}
+									name: sMainPartner,
+									title: sMainPartnerName,
+									desc: this.generateText("Case Id", sCaseId),
+									contact: {
+										val: "1000811",
+										href: "http://twitter.com",
+										target: "_self"
+									}
 								},
-<<<<<<< HEAD
-								image: "../headshots/2.jpg"
-								,
-=======
 								image: "../headshots/2.jpg",
->>>>>>> branch 'master' of https://github.com/mehulFatnani/ZMDI_SOA.git
-								innerHTML: this.generateInnerHTML(sMainPartnerName,sMainPartner,sCaseId,"../headshots/2.jpg")
+								innerHTML: this.generateInnerHTML("", sMainPartnerName, sMainPartner, sCaseId, sGender, sHasPic,sIsAdult,0)
 							};
-<<<<<<< HEAD
-							
-=======
-<<<<<<< HEAD
-
 							var cto;
-=======
->>>>>>> branch 'master' of https://github.com/mehulFatnani/ZMDI_SOA.git
 							var cdo = ceo;
-							var cto;
-<<<<<<< HEAD
-=======
-							/*= {
-								parent: ceo,
-								text: {
-									name: sMainPartnerName,
-									title: sMainPartner,
-									contact: "Tel: 01 213 123 134"
-								},
-								image: "../headshots/1.jpg"
-							};*/
->>>>>>> branch 'master' of https://github.com/mehulFatnani/ZMDI_SOA.git
->>>>>>> branch 'master' of https://github.com/mehulFatnani/ZMDI_SOA.git
-							this.chart_config = [window.config, ceo];
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-							
-=======
-							//this.chart_config.push(cto);
->>>>>>> branch 'master' of https://github.com/mehulFatnani/ZMDI_SOA.git
->>>>>>> branch 'master' of https://github.com/mehulFatnani/ZMDI_SOA.git
+							//this.chart_config = [window.config, ceo];
+							this.chart_config = [config, ceo];
 							var distinct = [sMainPartner];
 							var relDistinct = [oItems[0].RelPartner];
-							for (var j = 0; j < oItems.length; j++) 
-							{
+							for (var j = 0; j < oItems.length; j++) {
 								if (distinct.includes(oItems[j].MainPartner) === false) {
 									distinct.push(oItems[j].MainPartner);
 								}
@@ -430,36 +427,29 @@ sap.ui.define([
 								}
 							}
 							var disLength = relDistinct.length,
-								k = 0, m = 0,
+								k = 0,
+								m = 0,
 								cio;
 							do {
-<<<<<<< HEAD
-								for (var i = 0; i < oItems.length; i++) 
-								{
-									if (oItems[i].MainPartner === sMainPartner) 
-									{
-=======
 								for (var i = 0; i < oItems.length; i++) {
-<<<<<<< HEAD
 									if (oItems[i].MainPartner === sMainPartner) {
 										cto = {
 											parent: ceo,
 											text: {
-												name:  oItems[i].RelPartner,
+												name: oItems[i].RelPartner,
 												title: oItems[i].RelPartnerName,
-												desc: this.generateText("Case Id",oItems[i].Caseno),
-												contact:{
-															val: "1000811",
-            												href: "http://twitter.com/",
-            												target: "_self"
-												}
+												desc: this.generateText("Case Id", oItems[i].Caseno)
 											},
 											image: "../headshots/1.jpg",
-											innerHTML: this.generateInnerHTML(oItems[i].RelPartnerName,
-																			oItems[i].RelPartner,
-																			oItems[i].Caseno,
-																			"../headshots/1.jpg",
-																			oItems[i].SocAppSoaSet)
+											innerHTML: this.generateInnerHTML(oItems[i].Reldesc,
+												oItems[i].RelPartnerName,
+												oItems[i].RelPartner,
+												oItems[i].Caseno,
+												oItems[i].RelGender,
+												oItems[i].RelPic,
+												oItems[i].RelAdult,
+												oItems[i].Nodelevel,
+												oItems[i].SocAppSoaSet)
 										};
 										this.chart_config.push(cto);
 									}
@@ -471,61 +461,21 @@ sap.ui.define([
 									}
 								}
 								sMainPartner = relDistinct[k];
-=======
-									//console.log(oItems[i].MainPartner);
-									//this.chart_config = oData;
-									if (oItems[i].MainPartner === sMainPartner) {
->>>>>>> branch 'master' of https://github.com/mehulFatnani/ZMDI_SOA.git
-										cto = {
-											parent: ceo,
-											text: {
-												name:  oItems[i].RelPartner,
-												title: oItems[i].RelPartnerName,
-												desc: this.generateText("Case Id",oItems[i].Caseno),
-												contact:{
-															val: "1000811",
-            												href: "http://twitter.com/",
-            												target: "_self"
-												}
-											},
-											image: "../headshots/1.jpg"
-											,
-											innerHTML: this.generateInnerHTML(oItems[i].RelPartnerName,
-																			oItems[i].RelPartner,
-																			oItems[i].Caseno,
-																			"../headshots/1.jpg",
-																			oItems[i].SocAppSoaSet)
-										};
-										this.chart_config.push(cto);
-									}
-									for (var l = 1; l < this.chart_config.length; l++) 
-									{
-										if (relDistinct[k] === this.chart_config[l].text.name) 
-										{
-											cio = this.chart_config[l];
-											break;
-										}
+								for (var l = 1; l < this.chart_config.length; l++) {
+									if (relDistinct[k] === this.chart_config[l].text.name) {
+										cio = this.chart_config[l];
+										break;
 									}
 								}
-									for (var l = 1; l < this.chart_config.length; l++) {
-										if (relDistinct[k] === this.chart_config[l].text.name) {
-											cio = this.chart_config[l];
-											break;
-										}
-									}
+								//}
 								sMainPartner = relDistinct[k];
-<<<<<<< HEAD
-=======
-								if (distinct.includes(sMainPartner)) {
-									m = m + 2;
-								}
->>>>>>> branch 'master' of https://github.com/mehulFatnani/ZMDI_SOA.git
->>>>>>> branch 'master' of https://github.com/mehulFatnani/ZMDI_SOA.git
 								k++;
 								ceo = cio;
 							} while (k < disLength);
 							window.Treant(this.chart_config);
 						}
+						this.getView()
+							.setBusy(false);
 					}.bind(this),
 					error: function(oError) {
 						if (oError) {
@@ -537,7 +487,6 @@ sap.ui.define([
 					.getModel()
 					.read(sPath, mParameters);
 				this.onGenogramLoad();
-
 			}
 		},
 		onValidateFieldGroup: function(oEvent) {
@@ -956,8 +905,180 @@ sap.ui.define([
 
 			return aFilters;
 
-		}
-	
+		},
+		onAddRelationship: function(oEvent) {
+			var oSource = oEvent.getSource();
+			var sMainPartner = oSource.getBindingContext()
+				.getObject()
+				.MainPartner;
+			var oView = this.getView();
+			var oDialog = oView.byId("addRelationDialog");
+			// create dialog lazily
+			if (!oDialog) {
+				// create dialog via fragment factory
+				var oDialog = sap.ui.xmlfragment(oView.getId(), "mdi.crm.soa.view.fragment.AddBpRelationship", this.getView().getController());
+				oView.addDependent(oDialog);
+				var oMainPartner = this.getView().byId("MainPartner1");
+				oMainPartner.setValue(sMainPartner);
+			}
+			oDialog.open();
+		},
+		onCatgValHelp: function() {
+			var _oInput = this.getView().byId("CatgInput");
+			var oHelpTable = new sap.ui.table.Table({
+				selectionMode: sap.ui.table.SelectionMode.Single,
+				visibleRowCount: 7,
+				width: "300pt"
+			});
 
+			oHelpTable.addColumn(
+				new sap.ui.table.Column({
+					label: new sap.ui.commons.Label({
+						text: "Relationship Category"
+					}),
+					template: new sap.ui.commons.TextView().bindProperty("text", "Reltyp"),
+					sortProperty: "Reltyp",
+					filterProperty: "Reltyp"
+				})
+			);
+
+			oHelpTable.addColumn(
+				new sap.ui.table.Column({
+					label: new sap.ui.commons.Label({
+						text: "Description"
+					}),
+					template: new sap.ui.commons.TextView().bindProperty("text", "Bez50"),
+					sortProperty: "Bez50",
+					filterProperty: "Bez50"
+				})
+			);
+			oHelpTable.setModel(this.getView().getModel());
+			oHelpTable.bindRows("/SocAppBPRoleCatgSet");
+			var that = this;
+			var dialog = new sap.m.Dialog({
+				title: 'Relationship Category',
+				content: oHelpTable,
+				beginButton: new sap.m.Button({
+					text: 'OK',
+					press: function() {
+						var oContext = oHelpTable.getContextByIndex(oHelpTable.getSelectedIndex());
+						if (oContext) {
+							var oSel = oContext.getModel().getProperty(oContext.getPath());
+							var oInput = that.getView().byId("CatgInput");
+							oInput.setValue(oSel["Reltyp"]);
+						}
+						dialog.close();
+					}
+				}),
+				endButton: new sap.m.Button({
+					text: 'Close',
+					press: function() {
+						dialog.close();
+					}
+				}),
+				afterClose: function() {
+					dialog.destroy();
+				}
+			});
+
+			//to get access to the global model
+			this.getView().addDependent(dialog);
+			dialog.open();
+		},
+		onBPValHelp: function() {
+			var _oInput = this.getView().byId("BpInput");
+			var oHelpTable = new sap.ui.table.Table({
+				selectionMode: sap.ui.table.SelectionMode.Single,
+				visibleRowCount: 7,
+				width: "300pt"
+			});
+
+			oHelpTable.addColumn(
+				new sap.ui.table.Column({
+					label: new sap.ui.commons.Label({
+						text: "Related Business Partner"
+					}),
+					template: new sap.ui.commons.TextView().bindProperty("text", "Partner"),
+					sortProperty: "Partner",
+					filterProperty: "Partner"
+				})
+			);
+
+			oHelpTable.addColumn(
+				new sap.ui.table.Column({
+					label: new sap.ui.commons.Label({
+						text: "First Name"
+					}),
+					template: new sap.ui.commons.TextView().bindProperty("text", "McName1"),
+					sortProperty: "McName1",
+					filterProperty: "McName1"
+				})
+			);
+			oHelpTable.addColumn(
+				new sap.ui.table.Column({
+					label: new sap.ui.commons.Label({
+						text: "Last Name"
+					}),
+					template: new sap.ui.commons.TextView().bindProperty("text", "McName2"),
+					sortProperty: "McName2",
+					filterProperty: "McName2"
+				})
+			);
+			oHelpTable.setModel(this.getView().getModel());
+			oHelpTable.bindRows("/SocAppBPListSet");
+			var that = this;
+			var dialog = new sap.m.Dialog({
+				title: 'Business Partner',
+				content: oHelpTable,
+				beginButton: new sap.m.Button({
+					text: 'OK',
+					press: function() {
+						var oContext = oHelpTable.getContextByIndex(oHelpTable.getSelectedIndex());
+						if (oContext) {
+							var oSel = oContext.getModel().getProperty(oContext.getPath());
+							var oInput = that.getView().byId("BpInput");
+							oInput.setValue(oSel["Partner"]);
+						}
+						dialog.close();
+					}
+				}),
+				endButton: new sap.m.Button({
+					text: 'Close',
+					press: function() {
+						dialog.close();
+					}
+				}),
+				afterClose: function() {
+					dialog.destroy();
+				}
+			});
+
+			//to get access to the global model
+			this.getView().addDependent(dialog);
+			dialog.open();
+		},
+		onSubmitRelationship: function(oEvent) {
+			var sServiceUrl = "/SocAppBpRelSet";
+			var oParameters = {
+				"PartnerMain": this.getView().byId("MainPartner1").getValue(),
+				"PartnerSec": this.getView().byId("BpInput").getValue(),
+				"RelTypCatg": this.getView().byId("CatgInput").getValue()
+			};
+			var that = this;
+			this.getView().getModel().create(sServiceUrl, oParameters, { success: function() {
+				sap.m.MessageToast.show("Relationship Added Successfully!");
+				that.getView().byId("addRelationDialog").close();
+				//that.onIconTabBarSelect(oEvent);
+				
+			}, error : function() {
+				sap.m.MessageToast.show("Error Adding Relationship...");
+			}});
+
+		},
+		onCloseDialog: function() {
+			var oDialog = this.getView().byId("addRelationDialog");
+			oDialog.close();
+		}
 	});
+
 });

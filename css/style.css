@@ -22,3 +22,8 @@
 	color: #cc1919;
 	padding-right: .2rem;
 }
+.GenogramContent {
+    width: 50%;
+    position: relative;
+    margin-left: auto;
+}
