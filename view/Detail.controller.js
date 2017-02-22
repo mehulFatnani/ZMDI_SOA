@@ -311,11 +311,11 @@ sap.ui.define([
 
 			}
 			var output = "<div class=\"GenogramPic\"><img src=\"" + defaultPic + "\" style=\"width:40%\"></div>";
-				if (iLevel !== 0)
-				{
-				output = output + "<div class=\"GenogramContent\"><p class=\"node-name\">Relation.</p>" + "<p class=\"node-title\">" + iRel + "</p>" ;
-				}
-				output = output + "<p class=\"node-name\">" + iBPName + "</p>" +
+			if (iLevel !== 0) {
+				output = output + "<div class=\"GenogramContent\"><p class=\"node-name\">Relation.</p>" + "<p class=\"node-title\">" + iRel +
+					"</p>";
+			}
+			output = output + "<p class=\"node-name\">" + iBPName + "</p>" +
 				"<p class=\"node-name\">BP No.</p>" + "<p class=\"node-title\">" + iBPNo + "</p>";
 			if (iCaseNo !== "") {
 				output = output + "<p class=\"node-name\">Case No.</p>" + "<p class=\"node-title\">" + iCaseNo + "</p>";
@@ -363,7 +363,7 @@ sap.ui.define([
 				var sCaseId = oSource.getBindingContext()
 					.getObject().CaseId;
 				var sGender = oSource.getBindingContext().getObject().PartnerSex;
-				var sHasPic	 = oSource.getBindingContext().getObject().PartnerPic;
+				var sHasPic = oSource.getBindingContext().getObject().PartnerPic;
 				var sIsAdult = oSource.getBindingContext().getObject().PartnerAge;
 				var sPath = "/SocAppGenogramSet";
 				var aFilterIds = ["MainPartner"];
@@ -410,7 +410,7 @@ sap.ui.define([
 									}
 								},
 								image: "../headshots/2.jpg",
-								innerHTML: this.generateInnerHTML("", sMainPartnerName, sMainPartner, sCaseId, sGender, sHasPic,sIsAdult,0)
+								innerHTML: this.generateInnerHTML("", sMainPartnerName, sMainPartner, sCaseId, sGender, sHasPic, sIsAdult, 0)
 							};
 							var cto;
 							var cdo = ceo;
@@ -1065,14 +1065,17 @@ sap.ui.define([
 				"RelTypCatg": this.getView().byId("CatgInput").getValue()
 			};
 			var that = this;
-			this.getView().getModel().create(sServiceUrl, oParameters, { success: function() {
-				sap.m.MessageToast.show("Relationship Added Successfully!");
-				that.getView().byId("addRelationDialog").close();
-				//that.onIconTabBarSelect(oEvent);
-				
-			}, error : function() {
-				sap.m.MessageToast.show("Error Adding Relationship...");
-			}});
+			this.getView().getModel().create(sServiceUrl, oParameters, {
+				success: function() {
+					sap.m.MessageToast.show("Relationship Added Successfully!");
+					that.getView().byId("addRelationDialog").close();
+					//that.onIconTabBarSelect(oEvent);
+
+				},
+				error: function() {
+					sap.m.MessageToast.show("Error Adding Relationship...");
+				}
+			});
 
 		},
 		onCloseDialog: function() {
