@@ -965,6 +965,8 @@ sap.ui.define([
 						if (oContext) {
 							var oSel = oContext.getModel().getProperty(oContext.getPath());
 							var oInput = that.getView().byId("CatgInput");
+							var oLabel = that.getView().byId("RelDesc");
+							oLabel.setText(": "+oSel["Bez50"]);
 							oInput.setValue(oSel["Reltyp"]);
 						}
 						dialog.close();

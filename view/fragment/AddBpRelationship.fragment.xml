@@ -6,8 +6,9 @@
 				<Input id="MainPartnerDesc" editable="false"/>
 				<Input id="MainPartner1" editable="false" visible="false"/>
 				<Label text="Relationship Category"/>
+				<Label id="RelDesc" labelFor="CatgInput" textAlign="End"/>
 				<Input id="CatgInput" valueHelpRequest="onCatgValHelp" showValueHelp="true"></Input>
-				<Label text="Related Business Partner"/>
+				<Label text="Related Business Partner" labelFor="BpInput"/>
 				<Input id="BpInput" valueHelpRequest="onBPValHelp" showValueHelp="true"></Input>
 				<Button text="Add" press="onSubmitRelationship"/>
 				<Button text="Cancel" press="onCloseDialog"/>
