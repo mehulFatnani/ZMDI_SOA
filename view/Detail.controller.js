@@ -300,7 +300,10 @@ sap.ui.define([
 				defaultPic = "http://blcgbs68.accenture.tsap:8100" + this.getView().getModel().sServiceUrl + '/SocAppImgAttachmentSet(\'00' +
 					iBPNo + '\')/$value';
 			} else {
+				if(iIsAdult === 'X')
+				{
 				switch (iGender) {
+					
 					case "1":
 						defaultPic = "../headshots/maleIcon.png";
 						break;
@@ -308,7 +311,9 @@ sap.ui.define([
 						defaultPic = "../headshots/femaleIcon.jpg";
 						break;
 				}
-
+				}else{
+						defaultPic = "../headshots/childIcon.jpg";
+				}
 			}
 			var output = "<div class=\"GenogramPic\"><img src=\"" + defaultPic + "\" style=\"width:40%\"></div>";
 			if (iLevel !== 0) {
@@ -410,7 +415,7 @@ sap.ui.define([
 									}
 								},
 								image: "../headshots/2.jpg",
-								innerHTML: this.generateInnerHTML("", sMainPartnerName, sMainPartner, sCaseId, sGender, sHasPic, sIsAdult, 0)
+								innerHTML: this.generateInnerHTML("", sMainPartnerName, sMainPartner, sCaseId, sGender, sHasPic, sIsAdult, 0,oItems[0].SocAppSoaSet)
 							};
 							var cto;
 							var cdo = ceo;
@@ -431,7 +436,7 @@ sap.ui.define([
 								m = 0,
 								cio;
 							do {
-								for (var i = 0; i < oItems.length; i++) {
+								for (var i = 1; i < oItems.length; i++) {
 									if (oItems[i].MainPartner === sMainPartner) {
 										cto = {
 											parent: ceo,
@@ -911,6 +916,8 @@ sap.ui.define([
 			var sMainPartner = oSource.getBindingContext()
 				.getObject()
 				.MainPartner;
+			var sMainPartnerName = oSource.getBindingContext()
+				.getObject().MainPartnerName;
 			var oView = this.getView();
 			var oDialog = oView.byId("addRelationDialog");
 			// create dialog lazily
@@ -918,8 +925,12 @@ sap.ui.define([
 				// create dialog via fragment factory
 				var oDialog = sap.ui.xmlfragment(oView.getId(), "mdi.crm.soa.view.fragment.AddBpRelationship", this.getView().getController());
 				oView.addDependent(oDialog);
+				// Set Partner No.
 				var oMainPartner = this.getView().byId("MainPartner1");
-				oMainPartner.setValue(sMainPartner);
+				oMainPartner.setText(sMainPartner);
+				// Set Partner Name
+				var oMainPartnerDesc = this.getView().byId("MainPartnerDesc");
+				oMainPartnerDesc.setValue(sMainPartnerName);
 			}
 			oDialog.open();
 		},
@@ -928,7 +939,9 @@ sap.ui.define([
 			var oHelpTable = new sap.ui.table.Table({
 				selectionMode: sap.ui.table.SelectionMode.Single,
 				visibleRowCount: 7,
-				width: "300pt"
+				width: "300pt",
+				enableBusyIndicator:true,
+				showNoData : false
 			});
 
 			oHelpTable.addColumn(
@@ -964,10 +977,15 @@ sap.ui.define([
 						var oContext = oHelpTable.getContextByIndex(oHelpTable.getSelectedIndex());
 						if (oContext) {
 							var oSel = oContext.getModel().getProperty(oContext.getPath());
+							// Set Relationship Category							
+							var oLabel = that.getView().byId("RelCatg");
+							oLabel.setText(oSel["Reltyp"]);
+							// Set Relationship Category Desc							
 							var oInput = that.getView().byId("CatgInput");
-							var oLabel = that.getView().byId("RelDesc");
-							oLabel.setText(": "+oSel["Bez50"]);
-							oInput.setValue(oSel["Reltyp"]);
+							oInput.setValue(oSel["Bez50"]);
+						}else
+						{
+							oHelpTable.setShowNoData(true);
 						}
 						dialog.close();
 					}
@@ -992,7 +1010,9 @@ sap.ui.define([
 			var oHelpTable = new sap.ui.table.Table({
 				selectionMode: sap.ui.table.SelectionMode.Single,
 				visibleRowCount: 7,
-				width: "300pt"
+				width: "300pt",
+				enableBusyIndicator : true,
+				showNoData : false
 			});
 
 			oHelpTable.addColumn(
@@ -1038,8 +1058,16 @@ sap.ui.define([
 						var oContext = oHelpTable.getContextByIndex(oHelpTable.getSelectedIndex());
 						if (oContext) {
 							var oSel = oContext.getModel().getProperty(oContext.getPath());
+							// Set Business Partner
+							var oLabel = that.getView().byId("BpNo");
+							oLabel.setText(oSel["Partner"]);
+							// Set Business Partner Name
 							var oInput = that.getView().byId("BpInput");
-							oInput.setValue(oSel["Partner"]);
+							var oBPName = oSel["McName1"] + " " + oSel["McName2"];
+							oInput.setValue(oBPName);
+						}else
+						{
+							oHelpTable.setShowNoData(true);
 						}
 						dialog.close();
 					}
@@ -1059,20 +1087,24 @@ sap.ui.define([
 			this.getView().addDependent(dialog);
 			dialog.open();
 		},
-		onSubmitRelationship: function(oEvent) {
+		onSubmitRelationship: function() {
 			var sServiceUrl = "/SocAppBpRelSet";
 			var oParameters = {
-				"PartnerMain": this.getView().byId("MainPartner1").getValue(),
-				"PartnerSec": this.getView().byId("BpInput").getValue(),
-				"RelTypCatg": this.getView().byId("CatgInput").getValue()
+				"PartnerMain": this.getView().byId("MainPartner1").getText(),
+				"PartnerSec": this.getView().byId("BpNo").getText(),
+				"RelTypCatg": this.getView().byId("RelCatg").getText()
 			};
 			var that = this;
 			this.getView().getModel().create(sServiceUrl, oParameters, {
 				success: function() {
 					sap.m.MessageToast.show("Relationship Added Successfully!");
 					that.getView().byId("addRelationDialog").close();
-					//that.onIconTabBarSelect(oEvent);
-
+					var oIconTabBar = that.getView().byId("iconTabBar");
+					oIconTabBar.fireSelect({ //trying to select the WIP tab dynamically without a user click
+						key: "genogram" /*,
+						item: oIconTabBar.getItems()[0]*/
+					});
+					oIconTabBar.setSelectedKey("genogram");
 				},
 				error: function() {
 					sap.m.MessageToast.show("Error Adding Relationship...");
