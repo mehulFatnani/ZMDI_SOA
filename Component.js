@@ -6,8 +6,8 @@ sap.ui.define([
 	"./lib/thirdparty/q",
 	"./lib/thirdparty/custom-colored",
 	"./lib/thirdparty/raphael",
-	"./lib/thirdparty/Treant"
-	
+	"./lib/thirdparty/Treant",
+	"./lib/thirdparty/svg-pan-zoom"
 ],
 function (
 	jQuery,
@@ -15,7 +15,8 @@ function (
 	MDIConstants,
 	_,
 	Q,
-	Treant
+	Treant,
+	SvgPanZoom
 ) {
 	"use strict";
 

@@ -483,16 +483,19 @@ sap.ui.define([
 						}
 						this.getView()
 							.setBusy(false);
-						var panZoomInstance = svgPanZoom('#custom-colored', {
-							zoomEnabled: true,
-							controlIconsEnabled: true,
-							fit: true,
-							center: true,
-							minZoom: 0.1
-						});
+						$("#custom-colored").ready(function() {
+							var panZoomInstance = svgPanZoom('#custom-colored', {
+								zoomEnabled: true,
+								controlIconsEnabled: true,
+								fit: true,
+								center: true,
+								minZoom: 0.1
+							});
 
-						// zoom out
-						panZoomInstance.zoom(0.2);
+							// zoom out
+							panZoomInstance.zoom(0.2);
+
+						});
 					}.bind(this),
 					error: function(oError) {
 						if (oError) {
