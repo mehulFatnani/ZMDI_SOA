@@ -5,11 +5,12 @@
 		"_version": "1.1.0",
 		"id": "mdi.crm.soa",
 		"type": "application",
-		"i18n": "i18n/messageBundle_en.properties",
+		"i18n": "i18n/i18n.properties",
 		"applicationVersion": {
 			"version": "0.9.0"
 		},
-		"title": "{{app.title}}",
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
 		"tags": {
 			"keywords": [
 				"{{app.keyword1}}",
@@ -52,23 +53,17 @@
 	"sap.ui5": {
 		"_version": "1.1.0",
 		"resources": {
-			"css": [
-				{
-					"uri": "css/style.css"
-				},
-				{
-					"uri": "css/custom-colored.css"
-				},
-				{
-					"uri": "css/Treant.css"
-				},
-				{
-					"uri": "css/collapsable.css"
-				},
-				{
-					"uri": "css/perfect-scrollbar.css"
-				}
-			]
+			"css": [{
+				"uri": "css/style.css"
+			}, {
+				"uri": "css/custom-colored.css"
+			}, {
+				"uri": "css/Treant.css"
+			}, {
+				"uri": "css/collapsable.css"
+			}, {
+				"uri": "css/perfect-scrollbar.css"
+			}]
 		},
 		"dependencies": {
 			"minUI5Version": "1.30",
@@ -81,7 +76,9 @@
 		"models": {
 			"i18n": {
 				"type": "sap.ui.model.resource.ResourceModel",
-				"uri": "i18n/messageBundle_en.properties"
+				"settings": {
+					"bundleName": "mdi.crm.soa.i18n.i18n"
+				}
 			},
 			"": {
 				"dataSource": "ZSOA_APPROVE_SRV",
@@ -112,51 +109,45 @@
 				},
 				"controlAggregation": "pages"
 			},
-			"routes": [
-				{
-					"name": "detail",
-					"pattern": "detail/{SOAEntity}/{Action}/:Tab:",
-					"greedy": false,
-					"target": [
-						"home",
-						"detail"
-					]
-				},
-				{
-					"name": "not-found",
-					"pattern": "not-found",
-					"greedy": false,
-					"target": [
-						"home",
-						"not-found"
-					]
-				},
-				{
-					"name": "welcome",
-					"pattern": "welcome",
-					"greedy": false,
-					"target": [
-						"home",
-						"welcome"
-					]
-				},
-				{
-					"name": "server-error",
-					"pattern": "server-error",
-					"greedy": false,
-					"target": [
-						"server-error"
-					]
-				},
-				{
-					"name": "home",
-					"pattern": ":*all:",
-					"greedy": false,
-					"target": [
-						"home"
-					]
-				}
-			],
+			"routes": [{
+				"name": "detail",
+				"pattern": "detail/{SOAEntity}/{Action}/:Tab:",
+				"greedy": false,
+				"target": [
+					"home",
+					"detail"
+				]
+			}, {
+				"name": "not-found",
+				"pattern": "not-found",
+				"greedy": false,
+				"target": [
+					"home",
+					"not-found"
+				]
+			}, {
+				"name": "welcome",
+				"pattern": "welcome",
+				"greedy": false,
+				"target": [
+					"home",
+					"welcome"
+				]
+			}, {
+				"name": "server-error",
+				"pattern": "server-error",
+				"greedy": false,
+				"target": [
+					"server-error"
+				]
+			}, {
+				"name": "home",
+				"pattern": ":*all:",
+				"greedy": false,
+				"target": [
+					"home"
+				]
+			}],
 			"targets": {
 				"home": {
 					"viewName": "Home",

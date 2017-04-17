@@ -2,8 +2,8 @@
 	xmlns:mvc="sap.ui.core.mvc" xmlns:smartField="sap.ui.comp.smartfield" xmlns:smartForm="sap.ui.comp.smartform" xmlns="sap.m">
 	<Page navButtonPress="onNavBack" showNavButton="{device>/isPhone}" title="{i18n>detail.label.detail}">
 		<content>
-			<ObjectHeader icon="sap-icon://employee" iconActive="true" introActive="true" number="{ObjectId}" title="{MainPartnerName}" titleActive="true"
-				titlePress="OnTitlePress">
+			<ObjectHeader icon="sap-icon://employee" iconActive="true" introActive="true" number="{ObjectId}" title="{MainPartnerName}"
+				titleActive="true" titlePress="OnTitlePress">
 				<statuses>
 					<ObjectStatus state="{ path: 'SocAppStatusText', formatter: '._Formatters.formatStatus'}" text="{SocAppStatusText}" title="Status"/>
 					<ObjectStatus text="{EmployeeResponsbileName}" title="Employee Responsible"/>
@@ -68,6 +68,7 @@
 						<content>
 							<core:Fragment fragmentName="mdi.crm.soa.view.fragment.GenogramTab" type="XML"/>
 							<Button icon="sap-icon://add" press="onAddRelationship" text="Add Relationship"/>
+							<Button icon="sap-icon://resize" press="onResizeGenogram"/>
 						</content>
 					</IconTabFilter>
 				</items>

@@ -103,10 +103,9 @@ body {
     border: none;
     border-radius: 1em;
     background-color: #E6F2F9;
-<<<<<<< HEAD
     background-image: url(../headshots/expand-arrow.png);
     background-repeat: none;
-    positon: bottom;
+    position: bottom;
     padding: 3px;
     top:90%;
     right:90%;
@@ -123,26 +122,10 @@ body {
     background-color: white;
     border-radius: 1em;
     background-image: url(../headshots/expand-button.png);
-=======
-    background-image: url(/headshots/expand-arrow.png);
     background-repeat: none;
-    positon: bottom;
+    position: bottom;
     padding: 3px;
     top:90%;
     right:90%;
 }
 
-.Treant .node.collapsed {
-    background-color: #E6F2F9;
-}
-
-.Treant .node.collapsed .collapse-switch {
-    width: 19px;
-    height: 19px;
-    background: none;
-    background-color: white;
-    border-radius: 1em;
-    background-image: url(/headshots/expand-button.png);
->>>>>>> branch 'master' of https://github.com/mehulFatnani/ZMDI_SOA.git
-    background-repeat: none
-}

@@ -27,7 +27,8 @@ sap.ui.define([
 	"mdi/crm/soa/util/Promises",
 	"mdi/crm/soa/util/Formatter",
 	"mdi/crm/soa/control/Genogram",
-	"mdi/crm/soa/control/GenogramItem"
+	"mdi/crm/soa/control/GenogramItem",
+	"mdi/crm/soa/lib/thirdparty/svg-pan-zoom"
 ], function(
 	jQuery,
 	Controller,
@@ -52,7 +53,8 @@ sap.ui.define([
 	MDIPromises,
 	MDIFormatter,
 	Genogram,
-	GenogramItem
+	GenogramItem,
+	svgPanZoom
 ) {
 	"use strict";
 	var oBundle = sap.ui.getCore()
@@ -72,6 +74,7 @@ sap.ui.define([
 			this._Helpers.initSharedModel();
 			//hide decision basis
 			var oIconTabBar = this.byId("iconTabBar");
+
 			//oIconTabBar.setSelectedKey("dba").setVisible(false);
 		},
 		onRouteMatched: function(oEvent) {
@@ -300,19 +303,18 @@ sap.ui.define([
 				defaultPic = "http://blcgbs68.accenture.tsap:8100" + this.getView().getModel().sServiceUrl + '/SocAppImgAttachmentSet(\'00' +
 					iBPNo + '\')/$value';
 			} else {
-				if(iIsAdult === 'X')
-				{
-				switch (iGender) {
-					
-					case "1":
-						defaultPic = "../headshots/maleIcon.png";
-						break;
-					case "2":
-						defaultPic = "../headshots/femaleIcon.jpg";
-						break;
-				}
-				}else{
-						defaultPic = "../headshots/childIcon.jpg";
+				if (iIsAdult === 'X') {
+					switch (iGender) {
+
+						case "1":
+							defaultPic = "../headshots/maleIcon.png";
+							break;
+						case "2":
+							defaultPic = "../headshots/femaleIcon.jpg";
+							break;
+					}
+				} else {
+					defaultPic = "../headshots/childIcon.png";
 				}
 			}
 			var output = "<div class=\"GenogramPic\"><img src=\"" + defaultPic + "\" style=\"width:40%\"></div>";
@@ -415,14 +417,14 @@ sap.ui.define([
 									}
 								},
 								image: "../headshots/2.jpg",
-								innerHTML: this.generateInnerHTML("", sMainPartnerName, sMainPartner, sCaseId, sGender, sHasPic, sIsAdult, 0,oItems[0].SocAppSoaSet)
+								innerHTML: this.generateInnerHTML("", sMainPartnerName, sMainPartner, sCaseId, sGender, sHasPic, sIsAdult, 0, oItems[0].SocAppSoaSet)
 							};
 							var cto;
 							var cdo = ceo;
 							//this.chart_config = [window.config, ceo];
 							this.chart_config = [config, ceo];
 							var distinct = [sMainPartner];
-							var relDistinct = [oItems[0].RelPartner];
+							var relDistinct = [oItems[1].RelPartner];
 							for (var j = 0; j < oItems.length; j++) {
 								if (distinct.includes(oItems[j].MainPartner) === false) {
 									distinct.push(oItems[j].MainPartner);
@@ -481,6 +483,16 @@ sap.ui.define([
 						}
 						this.getView()
 							.setBusy(false);
+						var panZoomInstance = svgPanZoom('#custom-colored', {
+							zoomEnabled: true,
+							controlIconsEnabled: true,
+							fit: true,
+							center: true,
+							minZoom: 0.1
+						});
+
+						// zoom out
+						panZoomInstance.zoom(0.2);
 					}.bind(this),
 					error: function(oError) {
 						if (oError) {
@@ -492,6 +504,7 @@ sap.ui.define([
 					.getModel()
 					.read(sPath, mParameters);
 				this.onGenogramLoad();
+
 			}
 		},
 		onValidateFieldGroup: function(oEvent) {
@@ -940,8 +953,8 @@ sap.ui.define([
 				selectionMode: sap.ui.table.SelectionMode.Single,
 				visibleRowCount: 7,
 				width: "300pt",
-				enableBusyIndicator:true,
-				showNoData : false
+				enableBusyIndicator: true,
+				showNoData: false
 			});
 
 			oHelpTable.addColumn(
@@ -983,8 +996,7 @@ sap.ui.define([
 							// Set Relationship Category Desc							
 							var oInput = that.getView().byId("CatgInput");
 							oInput.setValue(oSel["Bez50"]);
-						}else
-						{
+						} else {
 							oHelpTable.setShowNoData(true);
 						}
 						dialog.close();
@@ -1011,8 +1023,8 @@ sap.ui.define([
 				selectionMode: sap.ui.table.SelectionMode.Single,
 				visibleRowCount: 7,
 				width: "300pt",
-				enableBusyIndicator : true,
-				showNoData : false
+				enableBusyIndicator: true,
+				showNoData: false
 			});
 
 			oHelpTable.addColumn(
@@ -1065,8 +1077,7 @@ sap.ui.define([
 							var oInput = that.getView().byId("BpInput");
 							var oBPName = oSel["McName1"] + " " + oSel["McName2"];
 							oInput.setValue(oBPName);
-						}else
-						{
+						} else {
 							oHelpTable.setShowNoData(true);
 						}
 						dialog.close();
@@ -1101,7 +1112,8 @@ sap.ui.define([
 					that.getView().byId("addRelationDialog").close();
 					var oIconTabBar = that.getView().byId("iconTabBar");
 					oIconTabBar.fireSelect({ //trying to select the WIP tab dynamically without a user click
-						key: "genogram" /*,
+						key: "genogram"
+							/*,
 						item: oIconTabBar.getItems()[0]*/
 					});
 					oIconTabBar.setSelectedKey("genogram");
@@ -1115,6 +1127,9 @@ sap.ui.define([
 		onCloseDialog: function() {
 			var oDialog = this.getView().byId("addRelationDialog");
 			oDialog.close();
+		},
+		onResizeGenogram: function() {
+
 		}
 	});
 

@@ -9,9 +9,10 @@ sap.ui.define([
 	"mdi/crm/soa/lib/thirdparty/custom-colored",
 	"mdi/crm/soa/lib/thirdparty/raphael",
 	"mdi/crm/soa/lib/thirdparty/Treant"
-], function(Control, Element, Treant, chart_config, Genogram, GenogramItem){
+	
+], function(Control, Element, Treant, chart_config, Genogram, GenogramItem) {
 	"use strict";
-		return Control.extend("mdi.crm.soa.control.Genogram", {
+	return Control.extend("mdi.crm.soa.control.Genogram", {
 		metadata: {
 			properties: {
 				"title": {
@@ -31,7 +32,7 @@ sap.ui.define([
 		},
 
 		init: function() {
-		
+
 		},
 		renderer: function(oRM, oControl) {
 			oRM.write("<div id=\"custom-colored\"");
@@ -52,7 +53,7 @@ sap.ui.define([
 				}
 				data.push(oEntry);
 			}
-			//window.Treant(this.chart_config);
+		
 		}
 	});
 });
