@@ -483,19 +483,8 @@ sap.ui.define([
 						}
 						this.getView()
 							.setBusy(false);
-						$("#custom-colored").ready(function() {
-							var panZoomInstance = svgPanZoom('#custom-colored', {
-								zoomEnabled: true,
-								controlIconsEnabled: true,
-								fit: true,
-								center: true,
-								minZoom: 0.1
-							});
+						$("svg").attr("id", "svg-id");
 
-							// zoom out
-							panZoomInstance.zoom(0.2);
-
-						});
 					}.bind(this),
 					error: function(oError) {
 						if (oError) {
@@ -507,7 +496,31 @@ sap.ui.define([
 					.getModel()
 					.read(sPath, mParameters);
 				this.onGenogramLoad();
+				this.getView().getModel().attachRequestCompleted(function() {
+					window.panZoomEmbedd = svgPanZoom('#custom-colored', {
+					zoomEnabled: true,
+					panEnabled: true,
+					controlIconsEnabled: true
+				});
+				window.panZoomObject = svgPanZoom('#custom-colored', {
+					zoomEnabled: true,
+					panEnabled: true,
+					controlIconsEnabled: true
+				});
+				/*	$("#svg-id").ready(function() {
+						var panZoomInstance = svgPanZoom('#svg-id', {
+							zoomEnabled: true,
+							controlIconsEnabled: true,
+							fit: true,
+							center: true,
+							minZoom: 0.1
+						});
 
+						// zoom out
+						panZoomInstance.zoom(0.2);
+
+					});*/
+				});
 			}
 		},
 		onValidateFieldGroup: function(oEvent) {
@@ -523,7 +536,9 @@ sap.ui.define([
 			oEventBus.unsubscribe("Component", "MetadataFailed", this.onMetadataFailed, this);
 			this._oRoutingParams = null;
 		},
-		onAfterRendering: function() {},
+		onAfterRendering: function() {
+
+		},
 		/**
 		 * ###################
 		 * CONVENIENCE GETTERS
@@ -1132,8 +1147,9 @@ sap.ui.define([
 			oDialog.close();
 		},
 		onResizeGenogram: function() {
-
+			//Do Nothing
 		}
+
 	});
 
 });
