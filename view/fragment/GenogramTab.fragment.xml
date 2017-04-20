@@ -1,3 +1,27 @@
-<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:g="mdi.crm.soa.control" xmlns="sap.m">
-	<g:Genogram/>
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:g="mdi.crm.soa.control" xmlns:m="sap.m"
+	xmlns="sap.suite.ui.commons" xmlns:viz="sap.viz.ui5.controls" xmlns:layout="sap.ui.layout">
+	<layout:Splitter width="100%" height="100%">
+		<layout:contentAreas>
+			<ChartContainer showFullScreen="true" showPersonalization="false" autoAdjustHeight="false" showLegend="true"
+				personalizationPress="attachPersonalizationPress" contentChange="attachContentChange" title="Genogram">
+				<content>
+					<ChartContainerContent icon="sap-icon://line-chart" title="Genogram">
+						<content>
+							<g:Genogram/>
+						</content>
+					</ChartContainerContent>
+				</content>
+				<toolbar>
+					<m:OverflowToolbar>
+						<m:ToolbarSpacer/>
+						<m:ToolbarSpacer/>
+						<m:Button icon="sap-icon://add" 	 text="Add Relationship" press="onAddRelationship"></m:Button>
+						<m:Button icon="sap-icon://zoom-in"  type="Transparent" press="onZoomIn"></m:Button>
+						<m:Button icon="sap-icon://zoom-out" type="Transparent" press="onZoomOut"></m:Button>
+						<ChartContainerToolbarPlaceholder></ChartContainerToolbarPlaceholder>
+					</m:OverflowToolbar>
+				</toolbar>
+			</ChartContainer>
+		</layout:contentAreas>
+	</layout:Splitter>
 </core:FragmentDefinition>

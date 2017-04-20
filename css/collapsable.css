@@ -76,14 +76,18 @@ acronym {
 body {
     background: #fff;
 }
-
-
-/* optional Container STYLES */
-
+/*
 .chart {
-    height: 600px;
+    height: 600px; 
     margin: 5px;
     width: 900px;
+}
+*/
+
+.chart {
+    height: 100%; 
+    margin: 5px;
+    width: 100%;
 }
 
 .Treant > .node {
@@ -107,8 +111,8 @@ body {
     background-repeat: none;
     position: bottom;
     padding: 3px;
-    top:90%;
-    right:90%;
+    top: 90%;
+    right: 90%;
 }
 
 .Treant .node.collapsed {
@@ -125,7 +129,6 @@ body {
     background-repeat: none;
     position: bottom;
     padding: 3px;
-    top:90%;
-    right:90%;
+    top: 90%;
+    right: 90%;
 }
-

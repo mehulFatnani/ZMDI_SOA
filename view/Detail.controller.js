@@ -60,9 +60,11 @@ sap.ui.define([
 	var oBundle = sap.ui.getCore()
 		.getModel("i18n")
 		.getResourceBundle();
+	var transformValue;
 	return Controller.extend("mdi.crm.soa.view.Detail", {
 		_oRoutingParams: {},
 		onInit: function() {
+		this.transformValue = 1;
 			MDIStatics.setFunctionGroupingObjectContext(this);
 			this.getView()
 				.setBusy(true);
@@ -148,12 +150,7 @@ sap.ui.define([
 				if (!sTabKey) {
 					return;
 				}
-				// var sRouteName = MDIConstants.ROUTE_PREFIX_TAB + sTabKey;
-				// // lazy-load tab through navigation
-				// this._getRouter()
-				//  .navTo(sRouteName, {
-				//    FeedbackEntity: this._oRoutingParams.FeedbackEntity
-				//  });
+
 				// tell other views what tab we're on
 				MDIStatics.getEventBus()
 					.publish("Detail", "TabChanged", {
@@ -495,32 +492,21 @@ sap.ui.define([
 				this.getView()
 					.getModel()
 					.read(sPath, mParameters);
-				this.onGenogramLoad();
-				this.getView().getModel().attachRequestCompleted(function() {
-					window.panZoomEmbedd = svgPanZoom('#custom-colored', {
-					zoomEnabled: true,
-					panEnabled: true,
-					controlIconsEnabled: true
-				});
-				window.panZoomObject = svgPanZoom('#custom-colored', {
-					zoomEnabled: true,
-					panEnabled: true,
-					controlIconsEnabled: true
-				});
-				/*	$("#svg-id").ready(function() {
-						var panZoomInstance = svgPanZoom('#svg-id', {
-							zoomEnabled: true,
-							controlIconsEnabled: true,
-							fit: true,
-							center: true,
-							minZoom: 0.1
-						});
+				//				this.onGenogramLoad();
+				/*				this.getView().getModel().attachRequestCompleted(function() {
 
-						// zoom out
-						panZoomInstance.zoom(0.2);
+									window.panZoomEmbedd = svgPanZoom('#svg-id', {
+										zoomEnabled: true,
+										panEnabled: true,
+										controlIconsEnabled: true
+									});
+									window.panZoomObject = svgPanZoom('#svg-id', {
+										zoomEnabled: true,
+										panEnabled: true,
+										controlIconsEnabled: true
+									});
 
-					});*/
-				});
+								});*/
 			}
 		},
 		onValidateFieldGroup: function(oEvent) {
@@ -567,7 +553,7 @@ sap.ui.define([
 				.getBindingContext()
 				.getObject()
 				.MainPartner;
-			// var sMainPartner="0010000540";
+
 			var sPath = "/SocAppAddressSet" + "('" + sMainPartner + "')";
 			// create/open the claim period selection calendar popover
 			if (!this._Dynamics.oCustomerDetailPopover) {
@@ -1147,9 +1133,33 @@ sap.ui.define([
 			oDialog.close();
 		},
 		onResizeGenogram: function() {
-			//Do Nothing
-		}
+			var panZoomInstance = svgPanZoom('#svg-id', {
+				zoomEnabled: true,
+				controlIconsEnabled: true,
+				fit: true,
+				center: true,
+				minZoom: 0.1
+			});
 
+			// zoom out
+			panZoomInstance.zoom(0.2);
+		},
+		onZoomIn: function() {
+			$("div.Treant").css("transform", "scale(1.2)");
+		/*	if (this.transformValue < 2) {
+				this.transformValue = this.transformValue + 0.2;
+				$(".terant").css("transform", this.transformValue);
+
+			}*/
+		},
+		onZoomOut: function() {
+			$("div.Treant").css("transform", "scale(0.8)");
+		/*	if (this.transformValue > 1) {
+				this.transformValue = this.transformValue - 0.2;
+				$(".terant").css("transform", this.transformValue);
+
+			}*/
+		}
 	});
 
 });

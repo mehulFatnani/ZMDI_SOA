@@ -69,7 +69,13 @@
 			"minUI5Version": "1.30",
 			"libs": {
 				"sap.m": {},
-				"sap.ui.layout": {}
+				"sap.ui.layout": {},
+				"sap.ui.commons":{},
+				"sap.ui.core":{},
+				"sap.ui.ux3":{},
+				"sap.ui.comp":{},
+				"sap.ca.ui":{},
+				"sap.suite.ui.commons":{}
 			},
 			"components": {}
 		},

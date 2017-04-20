@@ -28,7 +28,10 @@ sap.ui.define([
 					singularName: "item"
 				}
 			},
-			defaultAggregation: "items"
+			defaultAggregation: "items",
+			events:{
+				"afterRender" :{}
+			}
 		},
 
 		init: function() {
