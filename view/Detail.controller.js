@@ -27,8 +27,7 @@ sap.ui.define([
 	"mdi/crm/soa/util/Promises",
 	"mdi/crm/soa/util/Formatter",
 	"mdi/crm/soa/control/Genogram",
-	"mdi/crm/soa/control/GenogramItem",
-	"mdi/crm/soa/lib/thirdparty/svg-pan-zoom"
+	"mdi/crm/soa/control/GenogramItem"
 ], function(
 	jQuery,
 	Controller,
@@ -53,8 +52,7 @@ sap.ui.define([
 	MDIPromises,
 	MDIFormatter,
 	Genogram,
-	GenogramItem,
-	svgPanZoom
+	GenogramItem
 ) {
 	"use strict";
 	var oBundle = sap.ui.getCore()
@@ -64,7 +62,7 @@ sap.ui.define([
 	return Controller.extend("mdi.crm.soa.view.Detail", {
 		_oRoutingParams: {},
 		onInit: function() {
-		this.transformValue = 1;
+			transformValue = 0.6;
 			MDIStatics.setFunctionGroupingObjectContext(this);
 			this.getView()
 				.setBusy(true);
@@ -76,8 +74,6 @@ sap.ui.define([
 			this._Helpers.initSharedModel();
 			//hide decision basis
 			var oIconTabBar = this.byId("iconTabBar");
-
-			//oIconTabBar.setSelectedKey("dba").setVisible(false);
 		},
 		onRouteMatched: function(oEvent) {
 			var oParameters = oEvent.getParameters();
@@ -302,7 +298,6 @@ sap.ui.define([
 			} else {
 				if (iIsAdult === 'X') {
 					switch (iGender) {
-
 						case "1":
 							defaultPic = "../headshots/maleIcon.png";
 							break;
@@ -314,7 +309,7 @@ sap.ui.define([
 					defaultPic = "../headshots/childIcon.png";
 				}
 			}
-			var output = "<div class=\"GenogramPic\"><img src=\"" + defaultPic + "\" style=\"width:40%\"></div>";
+			var output = "<div class=\"gContent\"><div class=\"GenogramPic\"><img src=\"" + defaultPic + "\" style=\"width:40%\"></div>";
 			if (iLevel !== 0) {
 				output = output + "<div class=\"GenogramContent\"><p class=\"node-name\">Relation.</p>" + "<p class=\"node-title\">" + iRel +
 					"</p>";
@@ -324,14 +319,16 @@ sap.ui.define([
 			if (iCaseNo !== "") {
 				output = output + "<p class=\"node-name\">Case No.</p>" + "<p class=\"node-title\">" + iCaseNo + "</p>";
 			}
+			output = output + "</div></div><br/>";
+			output = output + "<div class=\"gBenefits\"><p class=\"node-name\">Recent Benfits:</p>";
 			if (iBenefits !== undefined && iBenefits.results.length !== 0) {
-				output = output + "<p class=\"node-name\">Recent Benfits:</p>";
 				var oItem = iBenefits.results;
 				for (var m = 0; m < oItem.length && oItem[m].MainPartner === iBPNo; m++) {
-					output = output + "<a target=\"_blank\" href=\"" + oItem[m].SoaUrl + "\">" + oItem[m].SoaNo + "-" + oItem[m].SoaDesc + "</a>";
+					output = output + "<a target=\"_blank\" href=\"" + oItem[m].SoaUrl + "\">" + oItem[m].SoaNo + "-" + oItem[m].SoaDesc +
+						"</a><br/>";
 				}
 			}
-			output = output + "</div>";
+			output = output + "</div><br/>";
 			return output;
 		},
 
@@ -341,6 +338,7 @@ sap.ui.define([
 				.getModel()
 				.sServiceUrl;
 			var sUrl = "";
+			// Execute if IconTab Attachment is selected						
 			if (sKey === "attachment") {
 				var aItems = this.byId("fileupload")
 					.getItems();
@@ -350,6 +348,7 @@ sap.ui.define([
 					oItem.setUrl(sUrl);
 				}, this));
 			}
+			// Execute if IconTab Genogram is selected			
 			if (sKey === "genogram") {
 				this.getView()
 					.setBusy(true);
@@ -417,65 +416,67 @@ sap.ui.define([
 								innerHTML: this.generateInnerHTML("", sMainPartnerName, sMainPartner, sCaseId, sGender, sHasPic, sIsAdult, 0, oItems[0].SocAppSoaSet)
 							};
 							var cto;
-							var cdo = ceo;
+							//var cdo = ceo;
 							//this.chart_config = [window.config, ceo];
 							this.chart_config = [config, ceo];
-							var distinct = [sMainPartner];
-							var relDistinct = [oItems[1].RelPartner];
-							for (var j = 0; j < oItems.length; j++) {
-								if (distinct.includes(oItems[j].MainPartner) === false) {
-									distinct.push(oItems[j].MainPartner);
-								}
-								if (relDistinct.includes(oItems[j].RelPartner) === false) {
-									relDistinct.push(oItems[j].RelPartner);
-								}
-							}
-							var disLength = relDistinct.length,
-								k = 0,
-								m = 0,
-								cio;
-							do {
-								for (var i = 1; i < oItems.length; i++) {
-									if (oItems[i].MainPartner === sMainPartner) {
-										cto = {
-											parent: ceo,
-											text: {
-												name: oItems[i].RelPartner,
-												title: oItems[i].RelPartnerName,
-												desc: this.generateText("Case Id", oItems[i].Caseno)
-											},
-											image: "../headshots/1.jpg",
-											innerHTML: this.generateInnerHTML(oItems[i].Reldesc,
-												oItems[i].RelPartnerName,
-												oItems[i].RelPartner,
-												oItems[i].Caseno,
-												oItems[i].RelGender,
-												oItems[i].RelPic,
-												oItems[i].RelAdult,
-												oItems[i].Nodelevel,
-												oItems[i].SocAppSoaSet)
-										};
-										this.chart_config.push(cto);
+							if (oItems.length > 1) {
+								var distinct = [sMainPartner];
+								var relDistinct = [oItems[1].RelPartner];
+								for (var j = 0; j < oItems.length; j++) {
+									if (distinct.includes(oItems[j].MainPartner) === false) {
+										distinct.push(oItems[j].MainPartner);
 									}
+									if (relDistinct.includes(oItems[j].RelPartner) === false) {
+										relDistinct.push(oItems[j].RelPartner);
+									}
+								}
+								var disLength = relDistinct.length,
+									k = 0,
+									m = 0,
+									cio;
+								do {
+									for (var i = 1; i < oItems.length; i++) {
+										if (oItems[i].MainPartner === sMainPartner) {
+											cto = {
+												parent: ceo,
+												text: {
+													name: oItems[i].RelPartner,
+													title: oItems[i].RelPartnerName,
+													desc: this.generateText("Case Id", oItems[i].Caseno)
+												},
+												image: "../headshots/1.jpg",
+												innerHTML: this.generateInnerHTML(oItems[i].Reldesc,
+													oItems[i].RelPartnerName,
+													oItems[i].RelPartner,
+													oItems[i].Caseno,
+													oItems[i].RelGender,
+													oItems[i].RelPic,
+													oItems[i].RelAdult,
+													oItems[i].Nodelevel,
+													oItems[i].SocAppSoaSet)
+											};
+											this.chart_config.push(cto);
+										}
+										for (var l = 1; l < this.chart_config.length; l++) {
+											if (relDistinct[k] === this.chart_config[l].text.name) {
+												cio = this.chart_config[l];
+												break;
+											}
+										}
+									}
+									sMainPartner = relDistinct[k];
 									for (var l = 1; l < this.chart_config.length; l++) {
 										if (relDistinct[k] === this.chart_config[l].text.name) {
 											cio = this.chart_config[l];
 											break;
 										}
 									}
-								}
-								sMainPartner = relDistinct[k];
-								for (var l = 1; l < this.chart_config.length; l++) {
-									if (relDistinct[k] === this.chart_config[l].text.name) {
-										cio = this.chart_config[l];
-										break;
-									}
-								}
-								//}
-								sMainPartner = relDistinct[k];
-								k++;
-								ceo = cio;
-							} while (k < disLength);
+									//}
+									sMainPartner = relDistinct[k];
+									k++;
+									ceo = cio;
+								} while (k < disLength);
+							}
 							window.Treant(this.chart_config);
 						}
 						this.getView()
@@ -492,21 +493,6 @@ sap.ui.define([
 				this.getView()
 					.getModel()
 					.read(sPath, mParameters);
-				//				this.onGenogramLoad();
-				/*				this.getView().getModel().attachRequestCompleted(function() {
-
-									window.panZoomEmbedd = svgPanZoom('#svg-id', {
-										zoomEnabled: true,
-										panEnabled: true,
-										controlIconsEnabled: true
-									});
-									window.panZoomObject = svgPanZoom('#svg-id', {
-										zoomEnabled: true,
-										panEnabled: true,
-										controlIconsEnabled: true
-									});
-
-								});*/
 			}
 		},
 		onValidateFieldGroup: function(oEvent) {
@@ -585,7 +571,7 @@ sap.ui.define([
 			var sApplicationGuid = oSource.getBindingContext()
 				.getObject()
 				.SocAppGuid;
-			// var sApplicationGuid="00505683-73A9-1ED5-A3C9-780E74E66AAB";
+
 			var sPath = "/SocAppCaseSet" + "(guid'" + sApplicationGuid + "')";
 			var CaseModel = new sap.ui.model.json.JSONModel();
 			// create/open the claim period selection calendar popover
@@ -677,7 +663,6 @@ sap.ui.define([
 					],
 					afterClose: $.proxy(function() {
 						this._Dynamics.oApproveDialog.removeAllContent();
-						// this._Dynamics.oApproveDialog.destroy();
 					}, this)
 				});
 			}
@@ -685,9 +670,6 @@ sap.ui.define([
 			this._Dynamics.oApproveDialog.setTitle(oBundle.getText("approve.dialog.title"));
 			this._Dynamics.oApproveDialog.removeAllContent();
 			this._Dynamics.oApproveDialog.addContent(oApproveForm);
-			// this._Dynamics.oApproveDialog.attachClosed($.proxy(function() {
-			//  this._Dynamics.oApproveDialog.removeAllContent();
-			// }, this));
 			if (!this._Dynamics.oApproveDialog.isOpen()) {
 				this._Dynamics.oApproveDialog.open();
 			}
@@ -707,10 +689,6 @@ sap.ui.define([
 			var oRejectForm = sap.ui.xmlfragment(this.getView()
 				.getId(), "mdi.crm.soa.view.fragment.RejectDialog", this);
 			if (!this._Dynamics.oRejectDialog) {
-				// this._Dynamics.oApproveDialog = new CommonsDialog({
-				//  width: "30%",
-				//  modal: true
-				// });
 				this._Dynamics.oRejectDialog = new sap.m.Dialog({
 					type: 'Message',
 					buttons: [new sap.m.Button({
@@ -770,7 +748,6 @@ sap.ui.define([
 					],
 					afterClose: $.proxy(function() {
 						this._Dynamics.oRejectDialog.removeAllContent();
-						// this._Dynamics.oRejectDialog.destroy();
 					}, this)
 				});
 			}
@@ -1132,33 +1109,20 @@ sap.ui.define([
 			var oDialog = this.getView().byId("addRelationDialog");
 			oDialog.close();
 		},
-		onResizeGenogram: function() {
-			var panZoomInstance = svgPanZoom('#svg-id', {
-				zoomEnabled: true,
-				controlIconsEnabled: true,
-				fit: true,
-				center: true,
-				minZoom: 0.1
-			});
-
-			// zoom out
-			panZoomInstance.zoom(0.2);
-		},
 		onZoomIn: function() {
-			$("div.Treant").css("transform", "scale(1.2)");
-		/*	if (this.transformValue < 2) {
-				this.transformValue = this.transformValue + 0.2;
-				$(".terant").css("transform", this.transformValue);
 
-			}*/
+			if (transformValue < 1) {
+				transformValue = transformValue + 0.1;
+				$("div.Treant").css("transform", "scale(" + transformValue + ")");
+
+			}
 		},
 		onZoomOut: function() {
-			$("div.Treant").css("transform", "scale(0.8)");
-		/*	if (this.transformValue > 1) {
-				this.transformValue = this.transformValue - 0.2;
-				$(".terant").css("transform", this.transformValue);
+			if (transformValue > 0.5) {
+				transformValue = transformValue - 0.1;
+				$("div.Treant").css("transform", "scale(" + transformValue + ")");
 
-			}*/
+			}
 		}
 	});
 

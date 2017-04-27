@@ -50,8 +50,6 @@
 								<items>
 									<UploadCollectionItem documentId="{Documentid}" enableDelete="false" enableEdit="false" fileName="{Name}" mimeType="{MimeType}"
 										thumbnailUrl="" url="">
-										<!--						attributes="{path : 'attributes', templateShareable : 'true'}"-->
-										<!--statuses="{path : 'statuses', templateShareable : 'true'}"-->
 										<attributes>
 											<ObjectAttribute text="{CreatedBy}" title="Created By"/>
 										</attributes>
@@ -67,8 +65,6 @@
 					<IconTabFilter icon="sap-icon://org-chart" id="genogramTabFilter" key="genogram" text="{i18n>genogramTab.label.title}">
 						<content>
 							<core:Fragment fragmentName="mdi.crm.soa.view.fragment.GenogramTab" type="XML"/>
-					<!--		<Button icon="sap-icon://add" press="onAddRelationship" text="Add Relationship"/>
-							<Button icon="sap-icon://resize" press="onResizeGenogram"/>-->
 						</content>
 					</IconTabFilter>
 				</items>
